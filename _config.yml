@@ -9,22 +9,22 @@
 title: My Website
 
 # Your name to show in the footer
-author: Some Person
+author: Manuel Valle Torre
 
 # --- List of links in the navigation bar --- #
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  Other Links:
+    - LinkedIn: "https://www.linkedin.com/in/manuelvalletorre/"
+    - TU Delft Pure: "https://research.tudelft.nl/en/persons/m-valle-torre"
+    - GitHub: "https://github.com/mvallet91"
 
 # --- Logo --- #
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/avatar-icon.png"
+avatar: "/assets/img/profile.jpg"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
