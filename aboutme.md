@@ -4,7 +4,7 @@ title: About me
 subtitle: Work in Progress (for ever)
 ---
 
-My name is Manuel Valle Torre, check my [CV](/documents/MVT_CV.pdf) for the formal stuff. 
+My name is Manuel Valle Torre, check my [CV](/assets/MVT_CV.pdf) for the formal stuff. 
 
 I've always been interested in the newest technologies and their application, that's why I chose a bachelor that focuses on the use of technologies like Information Systems for purposes such as Business. Later I decided I needed a stronger technical base which lead to studying a Computer Science master in TU Delft.
 
