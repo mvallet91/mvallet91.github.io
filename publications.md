@@ -4,11 +4,11 @@ title: Publications
 ---
 
 ### 2021
-Nirmal Roy, Manuel Valle Torre, Ujwal Gadiraju, David Maxwell and Claudia Hauff. *How Do Active Reading Strategies Affect Learning Outcomes in Web Search?*, accepted at ECIR 2021.
+Nirmal Roy, Manuel Valle Torre, Ujwal Gadiraju, David Maxwell and Claudia Hauff. *How Do Active Reading Strategies Affect Learning Outcomes in Web Search?*, ECIR 2021 [PDF Open](/assets/publications/ECIR2021-Roy.pdf).
 
-Nirmal Roy, Manuel Valle Torre, Ujwal Gadiraju, David Maxwell and Claudia Hauff. *Note the Highlight: Incorporating Active Reading Tools for Search As Learning*, accepted at CHIIR 2021.
+Nirmal Roy, Manuel Valle Torre, Ujwal Gadiraju, David Maxwell and Claudia Hauff. *Note the Highlight: Incorporating Active Reading Tools for Search As Learning*, CHIIR 2021 [PDF Open](/assets/publications/CHIIR2021-Roy.pdf).
 
-Ioana Jivet, Jacqueline Wong, Maren Scheffel, Manuel Valle Torre, Marcus Specht and Hendrik Drachsler. *The Quantum of Choice: How learners’ feedback monitoring decisions, goals and self-regulated learning skills are related*, accepted at LAK 2021.
+:crown: Ioana Jivet, Jacqueline Wong, Maren Scheffel, Manuel Valle Torre, Marcus Specht and Hendrik Drachsler. *The Quantum of Choice: How learners’ feedback monitoring decisions, goals and self-regulated learning skills are related*, Best full paper at LAK 2021 [PDF Open](/assets/publications/LAK2021-Jivet.pdf).
 
 ### 2020
 Manuel Valle Torre, Esther Tan, Claudia Hauff. *EdX log data analysis made easy: Introducing ELAT: An open-source, privacy-aware and browser-based edX log data analysis tool*, LAK2020 [PDF Open](/assets/publications/LAK2020-ELAT.pdf)
