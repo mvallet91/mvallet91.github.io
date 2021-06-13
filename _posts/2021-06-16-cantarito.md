@@ -27,6 +27,7 @@ But what if Tabasco is not hot enough? Make it with habaneros instead!
 3. Blend the habaneros with a bit of the brine, and some vinegar. Taste it and add more brine for more salt, or vinegar for more acidic
 
 <p align="middle">
-    <img src="{{site.baseurl}}/assets/img/habanero-close.jpg" width="50%">
-    <img src="{{site.baseurl}}/assets/img/habanero-fermented.jpg" width="50%">
+    <img src="{{site.baseurl}}/assets/img/habanero-sauce.jpg" width="30%">
+    <img src="{{site.baseurl}}/assets/img/habanero-close.jpg" width="30%">
+    <img src="{{site.baseurl}}/assets/img/habanero-fermented.jpg" width="30%">
 </p>
