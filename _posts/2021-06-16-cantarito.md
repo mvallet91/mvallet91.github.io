@@ -17,7 +17,7 @@ But what if Tabasco is not hot enough? Make it with habaneros instead!
 - White Vinegar
 
 <p align="center">
-    <img src="{{site.baseurl}}/assets/img/Cantarito44.jpg" width="300">
+    <img src="{{site.baseurl}}/assets/img/Cantarito44.png" width="300">
 </p>
 
 ### Instructions:
