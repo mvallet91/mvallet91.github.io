@@ -3,8 +3,8 @@ layout: post
 title: El Cantarito
 subtitle: Fermented Red Habanero
 cover-img: /assets/img/algerabrug.jpg
-thumbnail-img: /assets/img/habanero-fermented.jpg
-share-img: /assets/img/habanero-fermented.jpg
+thumbnail-img: /assets/img/cantarito-sauce.jpg
+share-img: /assets/img/cantarito-sauce.jpg
 tags: [habanero, fermented]
 ---
 
