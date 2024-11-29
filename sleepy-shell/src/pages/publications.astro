@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import { publications } from '../data/publications.js';
+
+// Group publications by year
+const pubsByYear = publications.reduce((acc, pub) => {
+  (acc[pub.year] = acc[pub.year] || []).push(pub);
+  return acc;
+}, {});
+
+// Sort years in descending order
+const years = Object.keys(pubsByYear).sort((a, b) => b - a);
+---
+
+<Layout 
+  title="Publications - Manuel Valle Torre"
+  description="Academic publications and research work"
+>
+  <Header />
+  
+  <main class="space-y-12">
+    <div class="space-y-4">
+      <h1 class="text-4xl font-bold">Publications</h1>
+    </div>
+
+    {years.map(year => (
+      <section class="space-y-6">
+        <h2 class="text-3xl font-bold relative inline-block">
+          {year}
+          <div class="absolute -z-10 -inset-2 rounded-lg bg-gradient-to-r from-accent/10 to-[#00dfd8]/10 blur-lg">
+          </div>
+        </h2>
+        <div class="space-y-6">
+          {pubsByYear[year].map((pub) => (
+            <article 
+              class="group p-6 rounded-lg bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm 
+                     shadow-sm hover:shadow-md transition-all duration-300
+                     hover:translate-x-1 hover:-translate-y-1"
+            >
+              <h3 class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r 
+                         from-accent to-[#00dfd8] opacity-80 group-hover:opacity-100 transition-opacity">
+                {pub.title}
+              </h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-400">
+                {pub.authors}
+              </p>
+              <div class="mt-3 flex flex-wrap gap-3 text-sm">
+                <span class="bg-blue-100 dark:bg-blue-900 px-2 py-1 rounded">
+                  {pub.type}
+                </span>
+                <span class="text-gray-500 dark:text-gray-400">
+                  {pub.venue}
+                </span>
+              </div>
+              {pub.doi && (
+                <a 
+                  href={pub.doi}
+                  class="mt-3 inline-flex items-center gap-1 text-accent hover:text-accent-dark transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Publication 
+                  <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" />
+                  </svg>
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+</Layout>

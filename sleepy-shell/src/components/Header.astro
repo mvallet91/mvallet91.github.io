@@ -1,0 +1,39 @@
+---
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Publications", href: "/publications" },
+  { label: "Garden", href: "https://mvallet91.github.io/garden/", external: true }
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-sm bg-transparent">
+  <nav class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a 
+      href="/" 
+      class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-[#00dfd8]"
+    >
+      Manuel Valle Torre
+    </a>
+    <div class="flex gap-8">
+      {navItems.map(item => (
+        <a 
+          href={item.href}
+          target={item.external ? "_blank" : undefined}
+          rel={item.external ? "noopener noreferrer" : undefined}
+          class:list={[
+            "relative py-1",
+            "hover:text-accent transition-colors duration-300",
+            "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full",
+            "after:origin-left after:scale-x-0 after:bg-gradient-to-r after:from-accent after:to-[#00dfd8]",
+            "after:transition-transform after:duration-300 hover:after:scale-x-100",
+            currentPath === item.href ? "text-accent after:scale-x-100" : "text-gray-600 dark:text-gray-400"
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>

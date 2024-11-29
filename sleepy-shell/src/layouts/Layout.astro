@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+import '../styles/global.css';
+import Bubbles from '../components/Bubbles.astro';
+
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="min-h-screen bg-white dark:bg-gray-900">
+    <Bubbles />
+    <div class="relative max-w-3xl mx-auto px-4 py-8">
+      <slot />
+    </div>
+  </body>
+</html>

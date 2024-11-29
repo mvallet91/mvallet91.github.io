@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+const gardenUrl = "https://mvallet91.github.io/garden/";
+---
+
+<Layout 
+  title="Digital Garden - Manuel Valle Torre"
+  description="My digital garden of public notes and thoughts"
+>
+  <Header />
+  
+  <main class="space-y-8 max-w-2xl mx-auto">
+    <div class="space-y-6">
+      <h1 class="text-4xl font-bold">Digital Garden</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        My digital garden is a space where I cultivate ideas about learning analytics, technology, and other interests.
+      </p>
+      
+      <a 
+        href={gardenUrl}
+        class="group inline-flex items-center gap-2 px-6 py-3 rounded-lg
+               bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm 
+               shadow-sm hover:shadow-md transition-all duration-300
+               hover:translate-x-1 hover:-translate-y-1"
+      >
+        <span class="text-lg font-medium bg-clip-text text-transparent bg-gradient-to-r 
+                     from-accent to-[#00dfd8] group-hover:opacity-90 transition-opacity">
+          Visit the Garden
+        </span>
+        <svg 
+          class="w-5 h-5 text-accent group-hover:translate-x-1 transition-transform" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="2" 
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
+        </svg>
+      </a>
+    </div>
+  </main>
+</Layout>

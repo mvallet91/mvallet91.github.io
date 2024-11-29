@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: rgb(0, 124, 240);
+  --accent-light: rgb(0, 223, 216);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: 
+    linear-gradient(to bottom right, 
+      rgba(0, 124, 240, 0.02) 0%,
+      rgba(0, 223, 216, 0.02) 50%,
+      rgba(0, 124, 240, 0.02) 100%
+    ),
+    linear-gradient(to top left,
+      rgba(0, 124, 240, 0.03) 0%,
+      rgba(0, 223, 216, 0.02) 50%,
+      rgba(0, 124, 240, 0.03) 100%
+    ),
+    rgba(255, 255, 255, 0.95);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
+}
+
+/* Optional: Add subtle noise texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+  z-index: -1;
+}
+
+/* Smooth scrolling and selection styling */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
