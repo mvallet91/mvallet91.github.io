@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const sauces = await Astro.glob('./*.mdx');
+const sortedSauces = sauces.sort((a, b) => {
+  const aDate = a.frontmatter.pubDate ?? '1970-01-01';
+  const bDate = b.frontmatter.pubDate ?? '1970-01-01';
+  return new Date(`${bDate}T00:00:00Z`).getTime() - new Date(`${aDate}T00:00:00Z`).getTime();
+});
+---
+
+<Layout
+  title="Hot Sauces | Manuel Valle Torre"
+  description="Handcrafted hot sauce recipes inspired by travel, ferments, and experimentation."
+>
+  <Header />
+
+  <main class="space-y-12">
+    <section class="space-y-4">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Hot Sauces</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+        The kitchen lab where I unwind. These sauces blend fermentation, smoke, and bright citrusy heat.
+        Each bottle captures a mood—from mellow garlic confit to explosive habanero ferments.
+      </p>
+    </section>
+
+    <section class="grid gap-8">
+      {sortedSauces.map((sauce) => (
+        <article class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+          <a href={sauce.url} class="flex flex-col md:flex-row">
+            {sauce.frontmatter.coverImg && (
+              <img
+                src={sauce.frontmatter.coverImg}
+                alt={sauce.frontmatter.heroAlt ?? sauce.frontmatter.title}
+                class="md:w-64 h-48 md:h-auto object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-8 space-y-3 flex-1">
+              <div class="flex flex-wrap gap-2 text-sm text-accent">
+                {(sauce.frontmatter.tags ?? []).map((tag) => (
+                  <span class="px-3 py-1 rounded-full bg-accent/10 text-accent dark:text-accent-dark">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
+                {sauce.frontmatter.title}
+              </h2>
+              {sauce.frontmatter.subtitle && (
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {sauce.frontmatter.subtitle}
+                </p>
+              )}
+              {sauce.frontmatter.pubDate && (
+                <time
+                  datetime={sauce.frontmatter.pubDate}
+                  class="block text-sm text-gray-500 dark:text-gray-400"
+                >
+                  {new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  }).format(new Date(`${sauce.frontmatter.pubDate}T00:00:00Z`))}
+                </time>
+              )}
+            </div>
+          </a>
+        </article>
+      ))}
+    </section>
+  </main>
+</Layout>

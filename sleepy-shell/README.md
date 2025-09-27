@@ -1,47 +1,61 @@
-# Astro Starter Kit: Minimal
+# Manuel Valle Torre – Astro site
 
-```sh
-npm create astro@latest -- --template minimal
+This `sleepy-shell/` folder contains the Astro project that powers <https://mvallet91.github.io/>. The site is built with:
+
+- **Astro 4** for the static site framework
+- **Tailwind CSS** (via `@astrojs/tailwind`) for styling and typography utilities
+- **MDX** support ready for long-form content
+
+The root of the repository hosts the production build that GitHub Pages serves from the `gh-pages` branch. Astro build output (`sleepy-shell/dist`) is copied there during deployment.
+
+## � Prerequisites
+
+- Node.js 18+ (Node 22 LTS works great)
+- npm 9+
+
+Run all commands from the repo root unless otherwise indicated.
+
+```powershell
+cd sleepy-shell
+npm install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## 🚀 Local development
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```powershell
+npm run dev -- --host --port 4321
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- Local URL: <http://localhost:4321/>
+- `--host` is handy when testing on devices in the same network.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The interactive **AI in Education** report lives in `public/reports/ai-in-education/index.html`. Because it’s placed in `public/`, Astro copies it verbatim (including Tailwind CDN + Chart.js) so the interactive experience works without extra bundling.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🏗️ Build & preview
 
-## 🧞 Commands
+```powershell
+npm run build
+npm run preview
+```
 
-All commands are run from the root of the project, from a terminal:
+- `npm run build` outputs the static site to `sleepy-shell/dist/`.
+- `npm run preview` serves the built site at <http://localhost:4321/> for a final smoke test.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+To deploy to GitHub Pages, copy the contents of `sleepy-shell/dist/` to the branch root (see the repo-level `npm run deploy` script for an automated copy + push flow).
 
-## 👀 Want to learn more?
+## ➕ Adding more reports
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Drop the standalone experience (HTML/JS/CSS) inside `public/reports/<slug>/index.html`.
+2. Register the report in `src/pages/reports.astro` so it appears in the directory page.
+3. Optional: highlight it on `src/pages/index.astro` with a short blurb.
+
+## 🧾 Useful scripts
+
+| Command           | Description                                    |
+| :---------------- | :--------------------------------------------- |
+| `npm run dev`     | Start the Astro dev server                      |
+| `npm run build`   | Generate static assets into `dist/`             |
+| `npm run preview` | Preview the built site locally                  |
+| `npm run astro …` | Access the Astro CLI for linting/checks/add-ons |
+
+Astro documentation: <https://docs.astro.build>

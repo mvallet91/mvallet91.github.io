@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JELAI: AI & Learning Analytics in Jupyter Notebooks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #007BFF;
+            border-bottom-color: #007BFF;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        .arch-component {
+            transition: all 0.5s ease-in-out;
+            border: 2px solid transparent;
+        }
+        .arch-highlight {
+            transform: scale(1.05);
+            border-color: #007BFF;
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+        }
+        .arch-fade {
+            opacity: 0.3;
+            transform: scale(0.95);
+        }
+        .arch-arrow {
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0.2;
+        }
+        .arch-arrow-highlight {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-blue-600">JELAI Project</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#intro" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Introduction</a>
+                <a href="#architecture" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Architecture</a>
+                <a href="#use-cases" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Use Cases</a>
+                <a href="#conclusion" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Conclusion</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none">
+                <span class="block w-6 h-0.5 bg-gray-600 mb-1"></span>
+                <span class="block w-6 h-0.5 bg-gray-600 mb-1"></span>
+                <span class="block w-6 h-0.5 bg-gray-600"></span>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 border-t border-gray-200">
+             <a href="#intro" class="block py-2 text-gray-600 hover:text-blue-500">Introduction</a>
+             <a href="#architecture" class="block py-2 text-gray-600 hover:text-blue-500">Architecture</a>
+             <a href="#use-cases" class="block py-2 text-gray-600 hover:text-blue-500">Use Cases</a>
+             <a href="#conclusion" class="block py-2 text-gray-600 hover:text-blue-500">Conclusion</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="intro" class="text-center min-h-[70vh] flex flex-col justify-center items-center">
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-800 leading-tight">JELAI: Smarter AI Tutoring in Jupyter Notebooks</h2>
+            <p class="mt-6 text-lg md:text-xl text-gray-700 max-w-3xl">
+                Generative AI can offer instant help, but often lacks the context of a student's learning journey. JELAI is an open-source platform that integrates AI tutoring directly into Jupyter Notebooks, enriched with real-time Learning Analytics to provide pedagogically-aware support and a powerful research tool.
+            </p>
+        </section>
+
+        <section id="definitions" class="py-16">
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 text-center">
+                <h3 class="text-3xl font-bold text-blue-700 mb-4">What is JELAI?</h3>
+                <p class="text-gray-600 max-w-4xl mx-auto text-lg">
+                    JELAI (Jupyter Environment for Learning Analytics and AI) is an experimental architecture designed to bridge the gap between powerful Large Language Models (LLMs) and the nuanced needs of education. It transforms the standard Jupyter environment into a smart, responsive learning tool. By capturing fine-grained student interactions—like code edits, executions, and errors—alongside their chat conversations with an AI tutor, JELAI provides the AI with the critical context it needs. This allows the AI to offer adaptive, pedagogically-sound scaffolding instead of just generic answers, while also creating a rich, integrated dataset for researchers to study student learning behaviors with AI.
+                </p>
+            </div>
+        </section>
+
+        <section id="architecture" class="py-24 bg-gray-100 rounded-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The JELAI Architecture</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                    JELAI uses a modular, containerized design to ensure scalability, privacy, and extensibility. Click through the steps below to see how data flows from the user to the AI and back, creating a context-aware feedback loop.
+                </p>
+                <div id="arch-controls" class="mt-6 flex justify-center space-x-2">
+                    <button data-step="1" class="arch-button bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">1: User Interaction</button>
+                    <button data-step="2" class="arch-button bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg">2: Middleware Processing</button>
+                    <button data-step="3" class="arch-button bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg">3: LLM Server</button>
+                    <button data-step="4" class="arch-button bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg">4: Response Loop</button>
+                    <button data-step="0" class="arch-button bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg">Reset</button>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto p-4 bg-white rounded-lg shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                    <div class="col-span-1 lg:col-span-2 p-4 border-2 border-gray-300 rounded-lg">
+                        <h3 class="text-lg font-bold text-center mb-4">Host Machine</h3>
+                        <div class="flex flex-col space-y-4">
+                            <div id="comp-hub" class="arch-component bg-blue-50 p-3 rounded-md border-2 border-dashed">
+                                <h4 class="font-semibold text-blue-800">JupyterHub Container</h4>
+                                <p class="text-sm text-gray-600">Manages users and spawns individual notebook containers.</p>
+                            </div>
+                            <div id="comp-user" class="arch-component bg-green-50 p-3 rounded-md border-2 border-dashed relative">
+                                <h4 class="font-semibold text-green-800">User Notebook Container</h4>
+                                <p class="text-sm text-gray-600">The student's live Jupyter environment with chat and telemetry extensions.</p>
+                                <div class="absolute top-1/2 -right-6 text-3xl arch-arrow" id="arrow-user-mid">→</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1 flex flex-col space-y-6">
+                        <div id="comp-mid" class="arch-component bg-purple-50 p-3 rounded-md border-2 border-dashed relative">
+                             <h4 class="font-semibold text-purple-800">Middleware Container</h4>
+                            <p class="text-sm text-gray-600">Processes logs, applies pedagogical rules, and enriches AI prompts.</p>
+                            <div class="absolute top-1/2 -right-6 text-3xl arch-arrow" id="arrow-mid-llm">→</div>
+                        </div>
+                        <div id="comp-llm" class="arch-component bg-red-50 p-3 rounded-md border-2 border-dashed">
+                            <h4 class="font-semibold text-red-800">LLM Server</h4>
+                            <p class="text-sm text-gray-600">Hosts local models (e.g., Llama, Gemma) via Ollama for privacy and control.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p id="arch-explanation" class="mt-6 text-center text-gray-700 max-w-3xl mx-auto"></p>
+
+        </section>
+
+        <section id="use-cases" class="py-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">JELAI in Action: Proof-of-Concept Use Cases</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                    To demonstrate its capabilities, JELAI was used in two small-scale pilot studies. These examples showcase how the platform can be used for both observational research and experimental A/B testing. Click each card to see the results.
+                </p>
+            </div>
+            <div id="use-case-container" class="grid md:grid-cols-2 gap-8">
+            </div>
+        </section>
+
+        <section id="conclusion" class="py-16 bg-gray-800 text-white rounded-2xl">
+            <div class="text-center max-w-4xl mx-auto px-6">
+                 <h2 class="text-3xl md:text-4xl font-bold">Discussion and Future Work</h2>
+                 <p class="mt-4 text-lg text-gray-300">
+                    JELAI provides a novel, open-source framework for integrating Learning Analytics with AI tutoring in Jupyter Notebooks, enabling context-aware support and valuable research opportunities. While current limitations include the computational cost of local LLMs and configuration complexity, future work will focus on enhancing AI proactivity, simplifying setup with templates, and improving interoperability with standards like xAPI. The primary contribution of JELAI is its flexible technical foundation, designed to empower educators and researchers to build and study the next generation of pedagogically-informed AI learning tools.
+                 </p>
+                 <div class="mt-6">
+                    <a href="https://github.com/mvallet91/JELAI" target="_blank" rel="noopener noreferrer" class="bg-white text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors">
+                        View on GitHub
+                    </a>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>An interactive summary of the JELAI paper.</p>
+            <p class="text-sm text-gray-400 mt-2">Valle Torre, M., van der Velden, T., Specht, M., Oertel, C. (2025). JELAI: Integrating AI and Learning Analytics in Jupyter Notebooks.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const useCaseData = [
+                {
+                    title: 'Use Case 1: Analyzing Help-Seeking Patterns',
+                    description: 'JELAI was used in an introductory Python course (N=18) to log code interactions and chats with a Llama3.1-70b tutor. We classified chat prompts as either instrumental (seeking guidance) or executive (seeking direct answers).',
+                    vizType: 'bar',
+                    data: {
+                        labels: ['Instrumental Help-Seeking', 'Executive Help-Seeking'],
+                        datasets: [{
+                            label: 'Prompt Type Frequency',
+                            data: [59.6, 27.9],
+                            backgroundColor: ['#007BFF', '#FFA500'],
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: { x: { beginAtZero: true, title: { display: true, text: 'Percentage of Prompts' } } }
+                    }
+                },
+                {
+                    title: 'Use Case 2: A/B Testing AI Prompts',
+                    description: 'A pilot study (N=19) compared a generic "helpful assistant" prompt to a "pedagogical" one. JELAI logged interactions for both groups to measure differences in behavior and learning processes.',
+                    vizType: 'bar',
+                    data: {
+                        labels: ['Dialogue Length', 'Code Executions', 'Errors Encountered'],
+                        datasets: [{
+                                label: 'Generic Prompt',
+                                data: [10.7, 12.8, 7.4],
+                                backgroundColor: '#6c757d',
+                            },
+                            {
+                                label: 'Pedagogical Prompt',
+                                data: [17.7, 8.3, 5.3],
+                                backgroundColor: '#28a745',
+                            }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { position: 'bottom' } },
+                        scales: { y: { beginAtZero: true, title: { display: true, text: 'Average Count' } } }
+                    }
+                }
+            ];
+
+            const useCaseContainer = document.getElementById('use-case-container');
+
+            useCaseData.forEach((useCase, index) => {
+                const card = document.createElement('div');
+                card.className = 'card bg-white p-6 rounded-xl shadow-sm border border-gray-200 cursor-pointer';
+                card.innerHTML = `
+                    <h4 class="font-bold text-lg text-gray-800">${useCase.title}</h4>
+                    <p class="text-gray-600 mt-2 text-sm">${useCase.description}</p>
+                    <div class="mt-4 details-container hidden">
+                        <div class="chart-container">
+                            <canvas id="chart-${index}"></canvas>
+                        </div>
+                    </div>
+                `;
+                useCaseContainer.appendChild(card);
+
+                card.addEventListener('click', () => {
+                    const allDetails = document.querySelectorAll('.details-container');
+                    const currentDetails = card.querySelector('.details-container');
+                    const isOpening = currentDetails.classList.contains('hidden');
+                    
+                    document.querySelectorAll('.card').forEach(c => c.classList.remove('ring-2', 'ring-blue-500'));
+                    allDetails.forEach(detail => detail.classList.add('hidden'));
+
+                    if (isOpening) {
+                        currentDetails.classList.remove('hidden');
+                        card.classList.add('ring-2', 'ring-blue-500');
+
+                        const ctx = document.getElementById(`chart-${index}`).getContext('2d');
+                        if(window.charts && window.charts[`chart-${index}`]) {
+                            window.charts[`chart-${index}`].destroy();
+                        }
+                        if(!window.charts) window.charts = {};
+                        window.charts[`chart-${index}`] = new Chart(ctx, {
+                            type: useCase.vizType,
+                            data: useCase.data,
+                            options: useCase.options
+                        });
+                    }
+                });
+            });
+
+            const archButtons = document.querySelectorAll('.arch-button');
+            const components = {
+                hub: document.getElementById('comp-hub'),
+                user: document.getElementById('comp-user'),
+                mid: document.getElementById('comp-mid'),
+                llm: document.getElementById('comp-llm'),
+            };
+            const arrows = {
+                userMid: document.getElementById('arrow-user-mid'),
+                midLlm: document.getElementById('arrow-mid-llm'),
+            };
+            const allArchElements = [...Object.values(components), ...Object.values(arrows)];
+            const archExplanation = document.getElementById('arch-explanation');
+
+            const explanations = {
+                0: "",
+                1: "A student writes code and sends a chat message in their personal Jupyter Notebook Container. Telemetry captures code edits and errors, while the chat message is enriched with immediate context.",
+                2: "The enriched message and telemetry logs are sent to the Middleware Container. Its Learning Analytics Module processes the data, and the LLM Handler applies pedagogical rules to construct a final, context-aware prompt.",
+                3: "The final prompt is sent to the LLM Server, which runs a local, open-source model. This ensures data privacy and allows for full control over the AI's configuration and behavior.",
+                4: "The LLM generates a response, which travels back through the Middleware to the student's chat interface, completing the adaptive feedback loop. The entire process is designed for real-time interaction."
+            };
+
+            function setArchState(step) {
+                archExplanation.textContent = explanations[step] || "";
+                archButtons.forEach(btn => {
+                    btn.classList.remove('bg-blue-500', 'text-white');
+                    btn.classList.add('bg-gray-300', 'text-gray-700');
+                    if(btn.dataset.step == step) {
+                        btn.classList.add('bg-blue-500', 'text-white');
+                        btn.classList.remove('bg-gray-300', 'text-gray-700');
+                    }
+                });
+
+                allArchElements.forEach(el => {
+                    el.classList.remove('arch-highlight', 'arch-fade', 'arch-arrow-highlight');
+                });
+
+                switch (step) {
+                    case 1:
+                        Object.values(components).forEach(c => c.classList.add('arch-fade'));
+                        components.user.classList.remove('arch-fade');
+                        components.user.classList.add('arch-highlight');
+                        arrows.userMid.classList.add('arch-arrow-highlight');
+                        break;
+                    case 2:
+                        Object.values(components).forEach(c => c.classList.add('arch-fade'));
+                        components.mid.classList.remove('arch-fade');
+                        components.mid.classList.add('arch-highlight');
+                        arrows.userMid.classList.add('arch-arrow-highlight');
+                        arrows.midLlm.classList.add('arch-arrow-highlight');
+                        break;
+                    case 3:
+                         Object.values(components).forEach(c => c.classList.add('arch-fade'));
+                        components.llm.classList.remove('arch-fade');
+                        components.llm.classList.add('arch-highlight');
+                        arrows.midLlm.classList.add('arch-arrow-highlight');
+                        break;
+                    case 4:
+                         Object.values(components).forEach(c => c.classList.add('arch-highlight'));
+                         Object.values(arrows).forEach(a => a.classList.add('arch-arrow-highlight'));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            archButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const step = parseInt(button.dataset.step, 10);
+                    setArchState(step);
+                });
+            });
+            
+            setArchState(1);
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  coverImg?: string;
+  heroAlt?: string;
+  tags?: string[];
+  pubDate?: string;
+}
+
+const { title, subtitle, coverImg, heroAlt, tags = [], pubDate } = Astro.props as Props;
+const formattedDate = pubDate
+  ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(
+      new Date(`${pubDate}T00:00:00Z`)
+    )
+  : undefined;
+---
+
+<Layout title={`${title} – Manuel Valle Torre`} description={subtitle ?? title}>
+  <Header />
+  <article class="mt-6 space-y-8">
+    <header class="space-y-4">
+      <div class="space-y-2">
+        <p class="text-sm uppercase tracking-[0.3em] text-accent dark:text-accent-dark">Sauce Recipe</p>
+        <h1 class="text-4xl font-semibold text-gray-900 dark:text-white">{title}</h1>
+        {subtitle && <p class="text-lg text-gray-600 dark:text-gray-400">{subtitle}</p>}
+      </div>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+        {formattedDate && <time datetime={pubDate}>{formattedDate}</time>}
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span class="px-3 py-1 rounded-full bg-accent/10 text-accent dark:text-accent-dark text-xs tracking-wide">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    {coverImg && (
+      <div class="overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 shadow-sm">
+        <img src={coverImg} alt={heroAlt ?? title} class="w-full object-cover" loading="lazy" />
+      </div>
+    )}
+
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <slot />
+    </div>
+  </article>
+</Layout>
