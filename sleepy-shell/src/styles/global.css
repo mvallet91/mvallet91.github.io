@@ -17,3 +17,26 @@ html {
   background: #0E7490; /* cyan-800 */
   color: white;
 }
+
+.parallax-hero {
+  position: relative;
+  background-image: url('/assets/img/path.jpg'); /* Ensure you have an image at this path */
+  min-height: 60vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

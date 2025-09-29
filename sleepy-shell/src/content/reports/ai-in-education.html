@@ -280,55 +280,52 @@
                 {
                     title: 'Risk of Bias Amplification',
                     description: 'Without oversight, GenAI can perpetuate and even amplify existing societal biases present in its training data, leading to inequitable learning experiences and outcomes for students from different demographic groups.',
-                    vizType: 'bar',
-                    data: {
-                        labels: ['Overall Average', 'Favored Group', 'Marginalized Group'],
-                        datasets: [{
-                            label: 'Success Rate (%)',
-                            data: [85, 95, 60],
-                            backgroundColor: ['#9ca3af', '#06b6d4', '#f87171'],
-                            borderColor: '#ffffff',
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                max: 100
-                            }
-                        },
-                        plugins: { 
-                            legend: { 
-                                display: false 
-                            } 
-                        }
-                    }
+                    vizType: 'text',
+                    content: `
+                        <div class="grid grid-cols-2 gap-4 text-center p-4">
+                            <div>
+                                <div class="bg-cyan-100 p-3 rounded-lg">
+                                    <p class="text-xs text-cyan-800">Favored Group (50 students)</p>
+                                    <p class="text-2xl font-bold text-cyan-900">9<span class="text-sm font-normal">/10</span></p>
+                                    <p class="text-xs text-gray-500">Avg. Grade</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="bg-red-100 p-3 rounded-lg">
+                                    <p class="text-xs text-red-800">Marginalized Group (7 students)</p>
+                                    <p class="text-2xl font-bold text-red-900">5<span class="text-sm font-normal">/10</span></p>
+                                    <p class="text-xs text-gray-500">Avg. Grade</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-center text-gray-600 mt-2 px-4">A high overall average can mask significant underperformance in specific subgroups, but analytics reveals the inequity.</p>
+                    `
                 },
                 {
                     title: 'Fostering Superficial Learning',
                     description: 'AI tools can make it easy for students to find answers without engaging in the critical thinking and problem-solving processes necessary for deep, long-term learning. This can lead to inflated performance metrics that mask a true lack of understanding.',
-                    vizType: 'bar',
-                    data: {
-                        labels: ['Student A (Deep Learning)', 'Student B (Superficial Learning)'],
-                        datasets: [{
-                            label: 'Effort (Time on Task in mins)',
-                            data: [45, 5],
-                            backgroundColor: '#fbbf24',
-                        }, {
-                            label: 'Score (out of 100)',
-                            data: [90, 88],
-                            backgroundColor: '#34d399',
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: { y: { beginAtZero: true, max: 100 } },
-                        plugins: { legend: { position: 'bottom' } }
-                    }
+                    vizType: 'text',
+                    content: `
+                        <div class="grid grid-cols-2 gap-4 text-center p-4">
+                            <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                <p class="font-semibold text-blue-800">Deep Learner</p>
+                                <p class="text-2xl font-bold text-blue-900">9<span class="text-sm font-normal">/10</span></p>
+                                <p class="text-xs text-gray-500">Score</p>
+                                <hr class="my-2">
+                                <p class="text-lg font-bold text-blue-900">45<span class="text-sm font-normal">min</span></p>
+                                <p class="text-xs text-gray-500">Time on Task</p>
+                            </div>
+                            <div class="bg-amber-50 p-3 rounded-lg border border-amber-100">
+                                <p class="font-semibold text-amber-800">Superficial Learner</p>
+                                <p class="text-2xl font-bold text-amber-900">8<span class="text-sm font-normal">/10</span></p>
+                                <p class="text-xs text-gray-500">Score</p>
+                                <hr class="my-2">
+                                <p class="text-lg font-bold text-amber-900">5<span class="text-sm font-normal">min</span></p>
+                                <p class="text-xs text-gray-500">Time on Task</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-center text-gray-600 mt-2 px-4">Without usage analytics, these critical differences in learning behavior are invisible.</p>
+                    `
                 },
                 {
                     title: 'Lack of Efficacy Measurement',
@@ -336,8 +333,11 @@
                     vizType: 'text',
                     content: `
                         <div class="text-center p-8 bg-gray-100 rounded-lg h-full flex flex-col justify-center items-center">
-                            <h3 class="text-5xl font-bold text-gray-400">DATA VOID</h3>
-                            <p class="mt-4 text-gray-600">No feedback. No insight. No evidence of impact.</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <h3 class="text-2xl font-bold text-gray-500 mt-2">DATA VOID</h3>
+                            <p class="mt-2 text-gray-600">No feedback. No insight. No evidence of impact.</p>
                         </div>
                     `
                 }
@@ -347,10 +347,15 @@
             
             riskData.forEach((risk, index) => {
                 const card = document.createElement('div');
-                card.className = 'card bg-white p-6 rounded-xl shadow-sm border border-gray-100 cursor-pointer';
+                card.className = 'card bg-white p-6 rounded-xl shadow-sm border border-gray-100 cursor-pointer flex flex-col';
                 card.innerHTML = `
-                    <h4 class="font-bold text-lg text-gray-800">${risk.title}</h4>
-                    <p class="text-gray-600 mt-2 text-sm">${risk.description}</p>
+                    <div class="flex-grow">
+                        <h4 class="font-bold text-lg text-gray-800">${risk.title}</h4>
+                        <p class="text-gray-600 mt-2 text-sm">${risk.description}</p>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#" class="details-toggle text-sm font-semibold text-cyan-700 hover:text-cyan-800">View Details &rarr;</a>
+                    </div>
                     <div class="mt-4 details-container hidden">
                         <div class="chart-container">
                             ${risk.vizType !== 'text' ? `<canvas id="chart-${index}"></canvas>` : risk.content}
@@ -359,18 +364,23 @@
                 `;
                 riskCardsContainer.appendChild(card);
 
-                card.addEventListener('click', () => {
+                const toggleLink = card.querySelector('.details-toggle');
+                
+                const clickHandler = (event) => {
+                    if(event) event.preventDefault();
                     const allDetails = document.querySelectorAll('.details-container');
                     const currentDetails = card.querySelector('.details-container');
                     const isOpening = currentDetails.classList.contains('hidden');
                     
                     document.querySelectorAll('.card').forEach(c => c.classList.remove('ring-2', 'ring-cyan-500'));
+                    document.querySelectorAll('.details-toggle').forEach(t => t.innerHTML = 'View Details &rarr;');
 
                     allDetails.forEach(detail => detail.classList.add('hidden'));
 
                     if (isOpening) {
                         currentDetails.classList.remove('hidden');
                         card.classList.add('ring-2', 'ring-cyan-500');
+                        toggleLink.innerHTML = 'Hide Details &larr;';
 
                         if (risk.vizType !== 'text') {
                             const ctx = document.getElementById(`chart-${index}`).getContext('2d');
@@ -384,8 +394,13 @@
                                 options: risk.options
                             });
                         }
-                    } 
-                });
+                    } else {
+                         toggleLink.innerHTML = 'View Details &rarr;';
+                    }
+                };
+
+                card.addEventListener('click', clickHandler);
+                toggleLink.addEventListener('click', clickHandler);
             });
 
             const toggleButton = document.getElementById('toggle-la-button');
