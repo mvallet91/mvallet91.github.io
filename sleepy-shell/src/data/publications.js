@@ -1,11 +1,21 @@
 export const publications = [
     {
+      title: "JELAI: Integrating AI and Learning Analytics in Jupyter Notebooks",
+      authors: "Valle Torre, M., van der Velden, T., Specht, M., Oertel, C.",
+      year: 2025,
+      venue: "AIED 2025",
+      doi: "https://doi.org/10.1007/978-3-031-98465-5_9",
+      type: "Conference Paper",
+      pdf: "/assets/publications/AIED2025-JELAI.pdf",
+    },
+    {
       title: "The Sequence Matters in Learning - A Systematic Literature Review",
       authors: "Valle Torre, M., Oertel, C., & Specht, M. M.",
       year: 2024,
       venue: "LAK 2024",
       doi: "https://doi.org/10.1145/3636555.3636880",
       type: "Conference Paper",
+      pdf: "/assets/publications/LAK24_Sequence.pdf",
     },
     {
       title: "An Investigation on Integration of Computational Thinking into Engineering Curriculum at Delft University of Technology",
@@ -30,6 +40,7 @@ export const publications = [
       venue: "ECIR 2021",
       doi: "https://doi.org/10.1007/978-3-030-72240-1_37",
       type: "Conference Paper",
+      pdf: "/assets/publications/ECIR2021-Roy.pdf",
     },
     {
       title: "Note the Highlight: Incorporating Active Reading Tools for Search As Learning",
@@ -38,6 +49,7 @@ export const publications = [
       venue: "CHIIR 2021",
       doi: "https://doi.org/10.1145/3406522.3446025",
       type: "Conference Paper",
+      pdf: "/assets/publications/CHIIR2021-Roy.pdf",
     },
     {
       title: "The Quantum of Choice: How Learners’ Feedback Monitoring Decisions, Goals and Self-Regulated Learning Skills Are Related",
@@ -47,6 +59,7 @@ export const publications = [
       doi: "https://doi.org/10.1145/3448139.3448179",
       type: "Conference Paper",
       award: "Best Full Paper",
+      pdf: "/assets/publications/LAK2021-Jivet.pdf",
     },
     {
       title: "EdX Log Data Analysis Made Easy: Introducing ELAT: An Open-Source, Privacy-Aware and Browser-Based edX Log Data Analysis Tool",
@@ -55,6 +68,7 @@ export const publications = [
       venue: "LAK 2020",
       doi: "https://doi.org/10.1145/3375462.3375510",
       type: "Conference Paper",
+      pdf: "/assets/publications/LAK2020-ELAT.pdf",
     },
     {
       title: "Training Data Augmentation for Detecting Adverse Drug Reactions in User-Generated Content",
@@ -63,6 +77,7 @@ export const publications = [
       venue: "EMNLP 2019",
       doi: "https://doi.org/10.18653/v1/d19-1239",
       type: "Conference Paper",
+      pdf: "/assets/publications/EMNLP2019-DataAugmentation.pdf",
     },
     {
       title: "Perceptual Relational Attributes: Navigating and Discovering Shared Perspectives from User-Generated Reviews",
@@ -71,6 +86,7 @@ export const publications = [
       venue: "BTW 2019",
       doi: "https://doi.org/10.18420/btw2019-11",
       type: "Conference Paper",
+      pdf: "/assets/publications/BTW2019-PerceptualAttributes.pdf",
     },
     {
       title: "TSE-NER: An Iterative Approach for Long-Tail Entity Extraction in Scientific Publications",
@@ -79,6 +95,7 @@ export const publications = [
       venue: "ISWC 2018",
       doi: "https://doi.org/10.1007/978-3-030-00671-6_8",
       type: "Conference Paper",
+      pdf: "/assets/publications/ISWC2018-TSENER.pdf",
     },
     {
       title: "Concept Focus: Semantic Meta-Data for Describing MOOC Content",
@@ -87,6 +104,7 @@ export const publications = [
       venue: "EC-TEL 2018",
       doi: "https://doi.org/10.1007/978-3-319-98572-5_36",
       type: "Conference Paper",
+      pdf: "/assets/publications/ECTEL2018-ConceptFocus.pdf",
     },
   ];
   

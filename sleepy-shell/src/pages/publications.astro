@@ -17,7 +17,7 @@ const years = Object.keys(pubsByYear).sort((a, b) => b - a);
   title="Publications - Manuel Valle Torre"
   description="Academic publications and research work"
 >
-  <Header />
+  <Header slot="header" />
   
   <main class="space-y-12">
     <div class="space-y-4">
@@ -53,19 +53,34 @@ const years = Object.keys(pubsByYear).sort((a, b) => b - a);
                   {pub.venue}
                 </span>
               </div>
-              {pub.doi && (
-                <a 
-                  href={pub.doi}
-                  class="mt-3 inline-flex items-center gap-1 text-accent hover:text-accent-dark transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Publication 
-                  <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" />
-                  </svg>
-                </a>
-              )}
+              <div class="mt-4 flex flex-wrap gap-4">
+                {pub.doi && (
+                  <a 
+                    href={pub.doi}
+                    class="inline-flex items-center gap-1 text-accent hover:text-accent-dark transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Publication 
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" />
+                    </svg>
+                  </a>
+                )}
+                {pub.pdf && (
+                  <a 
+                    href={pub.pdf}
+                    class="inline-flex items-center gap-1 text-accent hover:text-accent-dark transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm6 10a.75.75 0 01-.75-.75V8.707l-1.72 1.72a.75.75 0 01-1.06-1.06l3-3a.75.75 0 011.06 0l3 3a.75.75 0 11-1.06 1.06l-1.72-1.72V11.25A.75.75 0 0110 12z" clip-rule="evenodd" />
+                    </svg>
+                    PDF
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>

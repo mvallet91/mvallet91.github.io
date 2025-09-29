@@ -6,7 +6,6 @@ interface Props {
 
 const { title, description } = Astro.props;
 import '../styles/global.css';
-import Bubbles from '../components/Bubbles.astro';
 
 ---
 
@@ -22,9 +21,9 @@ import Bubbles from '../components/Bubbles.astro';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   </head>
   <body class="min-h-screen bg-white dark:bg-gray-900">
-    <Bubbles />
-    <div class="relative max-w-3xl mx-auto px-4 py-8">
+    <slot name="header" />
+    <main class="container mx-auto px-6 py-12">
       <slot />
-    </div>
+    </main>
   </body>
 </html>

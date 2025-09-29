@@ -6,8 +6,11 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          accent: 'var(--accent)',
-          'accent-dark': 'var(--accent-dark)',
+          accent: '#0E7490', // cyan-800
+          'accent-dark': '#155E75', // cyan-900
+        },
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
         },
         animation: {
           'fade-in': 'fadeIn 0.5s ease-out',

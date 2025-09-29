@@ -7,55 +7,38 @@ import Header from '../components/Header.astro';
   title="Manuel Valle Torre - Learning Analytics"
   description="PhD Student in Learning Analytics at TU Delft"
 >
-  <Header />
+  <Header slot="header" />
   
-  <main class="space-y-8">
-    <div class="space-y-4">
-      <p class="text-xl text-gray-600 dark:text-gray-400">
-        Hi I'm Manuel, I'm doing a PhD in Learning Analytics at TU Delft
-      </p>
-    </div>
+  <main class="space-y-12">
+    <section class="flex items-center gap-8">
+      <div class="w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 flex-shrink-0">
+        <!-- Placeholder for profile picture. Replace with <Image /> component when ready -->
+        <!-- Example: <Image src={profilePic} alt="Manuel Valle Torre" class="rounded-full" /> -->
+      </div>
+      <div class="space-y-2">
+        <h1 class="text-3xl font-bold">Manuel Valle Torre</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">
+          PhD Candidate in Learning Analytics at TU Delft, exploring how data and AI can enhance education.
+        </p>
+      </div>
+    </section>
+
     <div class="prose prose-lg dark:prose-invert max-w-none">
-
-  <p>
-    I've always been fascinated by emerging technologies and their applications. 
-    As a PhD student at the 
-    <a href="https://www.educationandlearning.nl/home" class="text-blue-600 dark:text-blue-400 hover:underline">Centre for Education and Learning (CEL)</a>, 
-    I explore how people learn and how data, analytics, and AI can support that process.
-  </p>
-
-  <p>
-    My current research focuses on using Learning Analytics to understand how students interact with Large Language Models (LLMs) for learning. 
-    By studying these interactions, we can design better tools and interfaces to support them.  
-    I’m building <a href="https://github.com/mvallet91/JELAI" class="text-blue-600 dark:text-blue-400 hover:underline">JELAI</a>, a Jupyter Environment for Learning Analytics and AI, to help researchers and educators collect and analyze data from students' interactions with LLMs. 
-    With JELAI, we can examine not only what students ask but also what triggers them to seek help and how they react to the AI’s responses.  
-    Do they instantly copy-paste, or do they pause before typing their take on the answer? How do they refine their approach after receiving feedback?
-  </p>
-
-  <p>
-    JELAI embeds a chatbot within Jupyter, enabling the design and evaluation of pedagogical interventions through code and AI interactions.  
-    We can modify system prompts to guide students toward answers without directly providing solutions or integrate learning objectives into the LLM to contextualize students' questions.  
-    This allows us to study how these adjustments influence student outcomes and their overall learning experience.
-  </p>
-
-  <p>
-    Before starting my PhD, I worked as a Research Engineer at the 
-    <a href="https://www.tudelft.nl/en/eemcs/the-faculty/departments/software-technology/web-information-systems" class="text-blue-600 dark:text-blue-400 hover:underline">Web Information Systems (WIS)</a> 
-    group, where I discovered my interest in Learning Analytics. 
-    Before that, I earned my Bachelor's degree in Business Informatics in Mexico, which gave me a solid foundation in information systems and technology for organizations.
-  </p>
-
-  <p>
-    Outside of research, I enjoy music, traveling, cooking, cycling, and exploring good beer and mezcal—especially when shared.  
-    I’m always up for a challenge and love learning new things. Lately, that includes Generative AI, Cognitive Psychology, yoga, and making my own 
-    <a href="/sauces" class="text-blue-600 dark:text-blue-400 hover:underline">hot sauces</a>.
-  </p>
-
-  <p>
-    Want the formal details? Here's my (outdated) <a href="/assets/MVT_CV.pdf" class="text-blue-600 dark:text-blue-400 hover:underline">CV</a>.  
-    Feel free to reach out if you're interested in Learning Analytics, JELAI, or just want to chat about AI and education!
-  </p>
-
+      <p>
+        I'm fascinated by emerging technologies and their potential to reshape how we learn. 
+        As a researcher at the <a href="https://www.educationandlearning.nl/home">Centre for Education and Learning (CEL)</a>, 
+        I focus on using Learning Analytics to understand and improve educational processes, particularly with the rise of Generative AI.
+      </p>
+      <p>
+        My work involves analyzing how students interact with Large Language Models (LLMs) to uncover patterns that can inform the design of better learning tools.
+        This research led me to create <a href="/reports/jelai">JELAI</a>, a Jupyter-based environment for studying these interactions.
+      </p>
+      <p>
+        Before my PhD, I was a Research Engineer at the Web Information Systems group at TU Delft. Outside of academia, I enjoy music, cooking, and making my own <a href="/sauces">hot sauces</a>.
+      </p>
+      <p>
+        Feel free to explore my <a href="/publications">publications</a> or reach out if you'd like to connect.
+      </p>
     </div>
 
     <section class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-900/60 shadow-sm p-6 sm:p-8 space-y-4">
