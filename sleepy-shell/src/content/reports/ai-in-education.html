@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI in Education: The Missing Link</title>
+    
+    <!-- GoatCounter Analytics - No cookies, privacy-friendly -->
+    <script data-goatcounter="https://mvallet91.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +40,8 @@
             max-width: 400px;
             margin-left: auto;
             margin-right: auto;
+        }
+        .chart-container canvas {
             height: 250px;
             max-height: 300px;
         }
@@ -58,6 +65,7 @@
                 <a href="#risks" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">The Risks</a>
                 <a href="#solution" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">The Solution</a>
                 <a href="#interactive" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Interactive Model</a>
+                <a href="#alignment" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">AI Alignment</a>
                 <a href="#recommendations" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">Recommendations</a>
                 <a href="#references" class="nav-link text-gray-600 border-b-2 border-transparent pb-1">References</a>
             </div>
@@ -72,6 +80,7 @@
              <a href="#risks" class="block py-2 text-gray-600 hover:text-cyan-700">The Risks</a>
              <a href="#solution" class="block py-2 text-gray-600 hover:text-cyan-700">The Solution</a>
              <a href="#interactive" class="block py-2 text-gray-600 hover:text-cyan-700">Interactive Model</a>
+             <a href="#alignment" class="block py-2 text-gray-600 hover:text-cyan-700">AI Alignment</a>
              <a href="#recommendations" class="block py-2 text-gray-600 hover:text-cyan-700">Recommendations</a>
              <a href="#references" class="block py-2 text-gray-600 hover:text-cyan-700">References</a>
         </div>
@@ -79,11 +88,25 @@
 
     <main class="container mx-auto px-6 py-12">
 
-        <section id="intro" class="text-center min-h-[60vh] flex flex-col justify-center items-center">
-            <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-cyan-900 leading-tight">Implementing Generative AI in Education is Not Enough.</h2>
-            <p class="mt-6 text-lg md:text-xl text-gray-700 max-w-3xl">
-                Generative AI promises to revolutionize learning, but deploying it without a feedback mechanism is like navigating without a compass. This exploration reveals the critical role of Learning Analytics in ensuring AI-driven education is effective, equitable, and truly intelligent. Without it, we risk investing in powerful tools whose impact we cannot see or steer.
-            </p>
+        <section id="intro" class="py-16">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-cyan-900 leading-tight">Implementing Generative AI in Education is Not Enough.</h2>
+                    <p class="mt-2 text-sm text-gray-500 font-medium">by me</p>
+                </div>
+                
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg mb-12">
+                    <p class="text-gray-700 leading-relaxed">
+                        Professor Martinez was excited when her university deployed an AI tutor for first-year differential equations. Students logged hundreds of hours with the system, they felt confident of their skills, and the AI provided detailed step-by-step solutions to every problem. Homework was delivered on time, and quality was better than ever. Three months later, the midterm exam told a different story: 40% of students failed. When she reviewed their work, the pattern was clear: students could reproduce the AI's solution steps but couldn't explain the underlying concepts or adapt to problems with slightly different framing. The AI had been used, but had learning actually occurred?
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                        Deploying AI without a feedback mechanism is like navigating without a compass. This exploration reveals the critical role of Learning Analytics in ensuring AI-driven education is effective, equitable, and truly intelligent. Without it, we risk investing in powerful tools whose impact we cannot see or steer.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <section id="definitions" class="py-16">
@@ -111,7 +134,7 @@
                     Deploying Generative AI without a Learning Analytics framework creates significant risks that can undermine educational goals. It leaves educators unable to verify effectiveness, address inequities, or ensure deep learning is occurring. Click on each card below to explore a specific risk and see a visual representation of the potential problem.
                 </p>
             </div>
-            <div id="risk-cards-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="risk-cards-container" class="grid md:grid-cols-2 gap-8">
             </div>
         </section>
 
@@ -126,12 +149,12 @@
             <div class="flex flex-col items-center space-y-8 px-4">
                 <div class="p-6 bg-white rounded-lg shadow-md w-full max-w-md text-center">
                     <h4 class="font-bold text-lg">Student Interaction</h4>
-                    <p class="text-gray-600">Student asks multiple questions about fractions, indicating confusion.</p>
+                    <p class="text-gray-600">Student asks multiple questions about separation of variables, indicating confusion.</p>
                 </div>
                 <div class="text-3xl text-gray-400">⬇️</div>
                 <div class="p-6 bg-amber-100 border border-amber-200 rounded-lg shadow-md w-full max-w-md text-center">
                     <h4 class="font-bold text-lg text-amber-800">💡 Learning Analytics Insight</h4>
-                    <p class="text-amber-700">Pattern detected: Student consistently struggles with finding common denominators.</p>
+                    <p class="text-amber-700">Pattern detected: Student consistently struggles with recognizing when to apply separation of variables.</p>
                 </div>
                 <div class="w-full max-w-4xl pt-8">
                     <div class="grid md:grid-cols-2 gap-8">
@@ -142,7 +165,7 @@
                             <div class="p-6 bg-white rounded-lg shadow-md w-full">
                                 <p class="text-2xl mb-2">🤖</p>
                                 <h4 class="font-semibold text-gray-800">GenAI Adapts</h4>
-                                <p class="text-gray-600 text-sm">Proactively offers a visual tutorial specifically on finding common denominators.</p>
+                                <p class="text-gray-600 text-sm">Proactively offers a visual walkthrough on identifying separable equations and the step-by-step process.</p>
                             </div>
                             <div class="text-2xl text-cyan-400 mt-4">↺</div>
                             <p class="font-semibold text-cyan-800">Outcome: Immediate Support</p>
@@ -215,33 +238,135 @@
             </div>
         </section>
 
+        <section id="alignment" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Learning Analytics as the Alignment Metric</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                    In AI research, "alignment" means ensuring AI systems do what we actually want them to do, not just what we ask them to do. In education, Learning Analytics serves as the alignment mechanism—the feedback loop that reveals whether AI tools are truly advancing learning goals.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-cyan-800 mb-4">The Alignment Problem in Education</h3>
+                    <p class="text-gray-600 mb-4">
+                        An AI tutor might be highly effective at providing correct answers and achieving high engagement metrics, yet still fail to promote deep learning. This is an alignment problem: the system is optimized for metrics (engagement, correct answers) that don't fully capture the true objective (genuine understanding and transferable skills).
+                    </p>
+                    <p class="text-gray-600">
+                        Professor Martinez's differential equations class demonstrates this perfectly. The AI was "working" by traditional metrics—students used it extensively and received correct solutions. But without LA to track how students engaged with those solutions, the misalignment went undetected until exam day.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-r from-cyan-50 to-amber-50 p-8 rounded-xl border border-cyan-100">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">How LA Enables Alignment</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Define True Learning Objectives</p>
+                                <p class="text-gray-600 text-sm">Move beyond surface metrics to define what genuine learning looks like in your context.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Measure Alignment Indicators</p>
+                                <p class="text-gray-600 text-sm">Use LA to track indicators that reveal whether AI interactions lead to deep understanding.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Create Feedback Loops</p>
+                                <p class="text-gray-600 text-sm">Use insights to continuously adjust both the AI system and teaching strategies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-purple-800 mb-4">Beyond Metrics: Toward Meaningful Learning</h3>
+                    <p class="text-gray-600">
+                        The goal isn't just to measure more—it's to measure what matters. Learning Analytics provides the evidence base to ensure that as AI becomes more sophisticated and persuasive, it remains aligned with the messy, complex, profoundly human process of learning. Without this alignment mechanism, we risk building increasingly powerful tools that optimize for the wrong things.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section id="recommendations" class="py-16">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Pathways to Responsible Implementation</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Implementation Pathway: Following the Learning Analytics Cycle</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                    To harness the benefits of Generative AI while mitigating its risks, educational institutions should adopt a deliberate, data-informed strategy. The following recommendations provide a starting point for building an effective and ethical AI-powered learning ecosystem.
+                    To harness the benefits of Generative AI while mitigating its risks, follow the Learning Analytics cycle. This iterative process ensures continuous improvement and alignment between AI deployment and learning outcomes.
                 </p>
             </div>
             <div class="max-w-4xl mx-auto space-y-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 class="font-semibold text-lg text-cyan-800">1. Start with Pedagogy: Define the Objective</h4>
-                    <p class="text-gray-600 mt-2">Before deploying any GenAI tool, clearly define the educational problem you are trying to solve (e.g., improving engagement, closing a specific skill gap). Establish clear metrics for success. How will you know if the solution is working?</p>
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-cyan-600">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
+                        <div class="flex-grow">
+                            <h4 class="font-semibold text-lg text-cyan-800">Define Learning Objectives & Success Metrics</h4>
+                            <p class="text-gray-600 mt-2">Before deploying AI, clearly articulate what successful learning looks like. Move beyond surface metrics (engagement, completion rates) to define indicators of deep understanding. For differential equations, this might include: ability to select appropriate methods, explain conceptual reasoning, and transfer skills to novel problems.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 class="font-semibold text-lg text-cyan-800">2. Build Purpose-Driven Data Infrastructure</h4>
-                    <p class="text-gray-600 mt-2">Once you know <em>what</em> you need to measure, invest in the ethical and robust infrastructure to collect that specific data. Avoid collecting data for its own sake; ensure every data point serves your pedagogical objective.</p>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-600">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
+                        <div class="flex-grow">
+                            <h4 class="font-semibold text-lg text-purple-800">Collect Relevant Data</h4>
+                            <p class="text-gray-600 mt-2">Build infrastructure to capture interaction data that reveals learning processes. Track not just what students answer, but how they engage: question formulation quality, time spent reasoning vs. copying, patterns in help-seeking behavior. Ensure data collection is ethical, transparent, and serves your defined objectives.</p>
+                        </div>
+                    </div>
                 </div>
-                 <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 class="font-semibold text-lg text-cyan-800">3. Start with Pilot Programs</h4>
-                    <p class="text-gray-600 mt-2">Run small-scale, controlled pilots of any new GenAI tool. Use your defined metrics and data infrastructure to measure the pilot's impact on learning outcomes before considering a wider rollout.</p>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-600">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
+                        <div class="flex-grow">
+                            <h4 class="font-semibold text-lg text-amber-800">Analyze & Generate Insights</h4>
+                            <p class="text-gray-600 mt-2">Transform data into actionable insights. Identify patterns that reveal misalignment between AI use and learning goals. Are certain student groups struggling? Is the AI fostering dependency rather than understanding? Run small-scale pilots to test hypotheses before scaling.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 class="font-semibold text-lg text-cyan-800">4. Demand Transparency from Vendors</h4>
-                    <p class="text-gray-600 mt-2">When procuring AI tools, require that vendors provide access to underlying interaction data. "Black box" solutions that don't allow for independent analysis are incompatible with a data-driven pedagogical strategy.</p>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-emerald-600">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
+                        <div class="flex-grow">
+                            <h4 class="font-semibold text-lg text-emerald-800">Take Informed Action</h4>
+                            <p class="text-gray-600 mt-2">Use insights to intervene at both the system and classroom level. Adapt the AI's behavior, modify prompts or constraints, and equip teachers with dashboards showing where students need support. Train educators to interpret LA insights and integrate them into teaching practice.</p>
+                        </div>
+                    </div>
                 </div>
-                 <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 class="font-semibold text-lg text-cyan-800">5. Train Educators on Data Literacy</h4>
-                    <p class="text-gray-600 mt-2">Equip teachers and administrators with the skills to interpret LA dashboards and use the insights to inform their teaching practices and support students effectively, completing the human-in-the-loop system.</p>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-rose-600">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-rose-600 text-white rounded-full flex items-center justify-center font-bold text-lg">5</div>
+                        <div class="flex-grow">
+                            <h4 class="font-semibold text-lg text-rose-800">Evaluate & Refine</h4>
+                            <p class="text-gray-600 mt-2">Measure the impact of your interventions against your original learning objectives. Did changes improve alignment? Are there unintended consequences? Use evaluation results to refine your objectives, data collection, and interventions. This closes the loop and begins the cycle again.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-cyan-50 to-purple-50 p-6 rounded-lg border border-cyan-200 mt-8">
+                    <h4 class="font-semibold text-lg text-gray-800 mb-2">Essential Considerations Throughout</h4>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="text-cyan-600">•</span>
+                            <span><strong>Vendor Transparency:</strong> Demand that AI vendors provide access to interaction data. "Black box" tools cannot be aligned.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cyan-600">•</span>
+                            <span><strong>Educator Capacity:</strong> Build data literacy skills among teachers and administrators to make the cycle effective.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cyan-600">•</span>
+                            <span><strong>Student Agency:</strong> Involve students in understanding how their data informs improvements to their learning experience.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -271,6 +396,7 @@
         <div class="container mx-auto px-6 py-8 text-center">
             <p>An interactive report on the synergy between Generative AI and Learning Analytics.</p>
             <p class="text-sm text-gray-400 mt-2">Built for educational leaders and technologists.</p>
+            <p class="text-sm text-gray-400 mt-4">Part of the <a href="https://community-data-ai.npuls.nl/groups/view/1590660d-2a58-4210-8842-c65953a0ac10/project-best-worst-practices-learning-analytics" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline">Npuls Project - Best and Worst Practices Learning Analytics</a></p>
         </div>
     </footer>
     
@@ -340,6 +466,60 @@
                             <p class="mt-2 text-gray-600">No feedback. No insight. No evidence of impact.</p>
                         </div>
                     `
+                },
+                {
+                    title: 'Broader Societal Impacts',
+                    description: 'GenAI raises critical concerns beyond the classroom: environmental costs of training models, intellectual property and plagiarism issues, and changing social relationships. While these deserve serious attention, Learning Analytics helps us address the educational dimension by revealing how AI tools actually affect learning.',
+                    vizType: 'text',
+                    content: `
+                        <div class="p-4 space-y-3">
+                            <div class="border-b border-gray-200 pb-3">
+                                <button class="w-full flex items-start gap-2 text-left hover:bg-gray-50 p-2 rounded transition" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('hidden')">
+                                    <span class="text-lg flex-shrink-0">🌍</span>
+                                    <div class="flex-grow">
+                                        <p class="font-semibold text-gray-700 text-sm">Environmental Impact</p>
+                                        <p class="text-xs text-gray-600">Energy-intensive model training</p>
+                                        <span class="text-xs text-cyan-600">Click to expand →</span>
+                                    </div>
+                                </button>
+                                <div class="hidden mt-2 ml-8 p-3 bg-gray-50 rounded text-xs text-gray-600">
+                                    <p class="mb-2">Training large language models requires massive computational resources and energy. A single training run can emit as much CO2 as several transatlantic flights.</p>
+                                    <a href="https://arxiv.org/abs/1906.02243" target="_blank" rel="noopener noreferrer" class="text-cyan-700 hover:underline">→ Energy and Policy Considerations for Deep Learning (Strubell et al., 2019)</a>
+                                </div>
+                            </div>
+                            
+                            <div class="border-b border-gray-200 pb-3">
+                                <button class="w-full flex items-start gap-2 text-left hover:bg-gray-50 p-2 rounded transition" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('hidden')">
+                                    <span class="text-lg flex-shrink-0">📝</span>
+                                    <div class="flex-grow">
+                                        <p class="font-semibold text-gray-700 text-sm">Intellectual Property</p>
+                                        <p class="text-xs text-gray-600">Plagiarism and authorship questions</p>
+                                        <span class="text-xs text-cyan-600">Click to expand →</span>
+                                    </div>
+                                </button>
+                                <div class="hidden mt-2 ml-8 p-3 bg-gray-50 rounded text-xs text-gray-600">
+                                    <p class="mb-2">GenAI blurs the lines of authorship and raises questions about academic integrity, original work, and who owns AI-generated content used in educational contexts.</p>
+                                    <a href="https://er.educause.edu/articles/2023/8/generative-ai-and-academic-integrity" target="_blank" rel="noopener noreferrer" class="text-cyan-700 hover:underline">→ Generative AI and Academic Integrity (EDUCAUSE, 2023)</a>
+                                </div>
+                            </div>
+                            
+                            <div class="pb-2">
+                                <button class="w-full flex items-start gap-2 text-left hover:bg-gray-50 p-2 rounded transition" onclick="event.stopPropagation(); this.nextElementSibling.classList.toggle('hidden')">
+                                    <span class="text-lg flex-shrink-0">👥</span>
+                                    <div class="flex-grow">
+                                        <p class="font-semibold text-gray-700 text-sm">Social Relationships</p>
+                                        <p class="text-xs text-gray-600">Changing human-AI dynamics</p>
+                                        <span class="text-xs text-cyan-600">Click to expand →</span>
+                                    </div>
+                                </button>
+                                <div class="hidden mt-2 ml-8 p-3 bg-gray-50 rounded text-xs text-gray-600">
+                                    <p class="mb-2">As students increasingly interact with AI tutors, questions emerge about the changing nature of student-teacher relationships, social learning, and the development of collaborative skills.</p>
+                                    <a href="https://doi.org/10.1038/s41562-024-02004-5" target="_blank" rel="noopener noreferrer" class="text-cyan-700 hover:underline">→ AI's impact on human learning and relationships (Nature, 2024)</a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-center text-gray-600 mt-2 px-4 bg-cyan-50 py-2 rounded">LA provides the evidence to ensure AI tools enhance rather than undermine genuine learning.</p>
+                    `
                 }
             ];
 
@@ -347,7 +527,7 @@
             
             riskData.forEach((risk, index) => {
                 const card = document.createElement('div');
-                card.className = 'card bg-white p-6 rounded-xl shadow-sm border border-gray-100 cursor-pointer flex flex-col';
+                card.className = 'card bg-white p-6 rounded-xl shadow-sm border border-gray-100 cursor-pointer flex flex-col min-h-[200px]';
                 card.innerHTML = `
                     <div class="flex-grow">
                         <h4 class="font-bold text-lg text-gray-800">${risk.title}</h4>
@@ -357,7 +537,7 @@
                         <a href="#" class="details-toggle text-sm font-semibold text-cyan-700 hover:text-cyan-800">View Details &rarr;</a>
                     </div>
                     <div class="mt-4 details-container hidden">
-                        <div class="chart-container">
+                        <div class="${risk.vizType !== 'text' ? 'chart-container' : 'w-full'}">
                             ${risk.vizType !== 'text' ? `<canvas id="chart-${index}"></canvas>` : risk.content}
                         </div>
                     </div>
@@ -381,6 +561,15 @@
                         currentDetails.classList.remove('hidden');
                         card.classList.add('ring-2', 'ring-cyan-500');
                         toggleLink.innerHTML = 'Hide Details &larr;';
+                        
+                        // Track card opening with GoatCounter
+                        if (window.goatcounter) {
+                            window.goatcounter.count({
+                                path: '/event/risk-card-opened',
+                                title: `Risk Card: ${risk.title}`,
+                                event: true
+                            });
+                        }
 
                         if (risk.vizType !== 'text') {
                             const ctx = document.getElementById(`chart-${index}`).getContext('2d');
@@ -413,6 +602,15 @@
             toggleButton.addEventListener('click', () => {
                 isLaActive = !isLaActive;
                 if (isLaActive) {
+                    // Track LA activation with GoatCounter
+                    if (window.goatcounter) {
+                        window.goatcounter.count({
+                            path: '/event/la-activated',
+                            title: 'Interactive: LA Activated',
+                            event: true
+                        });
+                    }
+                    
                     toggleButton.textContent = 'Deactivate Learning Analytics';
                     toggleButton.classList.remove('bg-cyan-600', 'hover:bg-cyan-700');
                     toggleButton.classList.add('bg-amber-500', 'hover:bg-amber-600');
