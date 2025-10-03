@@ -1,0 +1,8 @@
+User-agent: *
+Disallow:
+
+# Point to sitemap
+Sitemap: https://mvallet91.github.io/sitemap.xml
+
+# Optional: block crawling of /private or /admin paths if any
+# Disallow: /admin/

@@ -1,0 +1,11 @@
+JELAI: AI & Learning Analytics in Jupyter Notebooks
+
+Summary:
+JELAI (Jupyter Environment for Learning Analytics and AI) integrates AI tutoring directly into Jupyter Notebooks, capturing fine-grained telemetry (code edits, runs, errors) and chat interactions. This context enables AI tutors to provide pedagogically-aware, adaptive support while producing rich datasets for research into student learning behaviors.
+
+Key points:
+- Architecture: modular, containerized components for user interaction, middleware processing, LLM server, and response loops.
+- Benefits: contextualized AI responses, research-ready telemetry, improved interpretability of AI tutoring.
+- Use cases: interactive programming help, contextual hints during exercises, and research experiments tracking learning processes.
+
+For full interactive content, visit: https://mvallet91.github.io/reports/jelai/

@@ -1,0 +1,11 @@
+AI in Education: The Missing Link
+
+Summary:
+Professor Martinez deployed an AI tutor for a first-year differential equations course. Students used the system extensively and received correct solutions, but many failed the midterm because they couldn't explain or transfer the knowledge. This report argues that deploying Generative AI without Learning Analytics (LA) risks superficial learning, inequities, and wasted investment. LA provides the alignment mechanism: define true learning objectives, measure alignment indicators, create feedback loops, and use insights to adapt both AI and teaching.
+
+Key points:
+- Risk categories: bias amplification; superficial learning; lack of efficacy measurement; broader societal impacts (environmental cost, intellectual property, social relationships).
+- LA enables dual feedback loops: real-time AI adaptation and teacher-informed strategy.
+- Implementation pathway (LA cycle): Define objectives, Collect data, Analyze & generate insights, Take action, Evaluate & refine.
+
+Use this plain-text endpoint for ingestion by search crawlers or LLMs. For full interactive content, visit: https://mvallet91.github.io/reports/ai-in-education/

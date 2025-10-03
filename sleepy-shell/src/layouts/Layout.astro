@@ -21,8 +21,9 @@ import '../styles/global.css';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- GoatCounter Analytics - Privacy-friendly, no cookies -->
-    <script data-goatcounter="https://mvallet91.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js"></script>
+    {import.meta.env.MODE === 'production' ? (
+      <script data-goatcounter="https://mvallet91.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    ) : null}
   </head>
   <body class="min-h-screen bg-white dark:bg-gray-900">
     <slot name="header" />
