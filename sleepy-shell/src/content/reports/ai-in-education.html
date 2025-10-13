@@ -254,8 +254,14 @@
                 </div>
 
                 <div id="model-explanation" class="mt-8 text-center bg-gray-50 p-6 rounded-lg">
-                    <h4 class="font-bold text-xl mb-2">Current State: GenAI Alone</h4>
-                    <p class="text-gray-600 max-w-2xl mx-auto">This is a simple, one-way transaction. The student asks, the AI answers. We have no insight into whether the student understood, if the answer was truly helpful, or how this interaction compares to others. The system cannot learn or adapt from the experience.</p>
+                    <div id="explanation-genai" class="transition-opacity duration-300 ease-in-out opacity-100" aria-hidden="false">
+                        <h4 class="font-bold text-xl mb-2">Current State: GenAI Alone</h4>
+                        <p class="text-gray-600 max-w-2xl mx-auto">This is a simple, one-way transaction. The student asks, the AI answers. We have no insight into whether the student understood, if the answer was truly helpful, or how this interaction compares to others. The system cannot learn or adapt from the experience.</p>
+                    </div>
+                    <div id="explanation-la" class="transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none" aria-hidden="true">
+                        <h4 class="font-bold text-xl mb-2 text-amber-800">State: GenAI + Learning Analytics Activated</h4>
+                        <p class="text-gray-600 max-w-2xl mx-auto">Now two feedback loops operate in tandem. (1) Student–AI loop: interactions are analyzed by the LA Engine, insights flow back, and the AI adapts its next response—updating the learner model. (2) Teacher loop: class-level insights surface on the Teacher Dashboard to guide instruction and supports.</p>
+                    </div>
                 </div>
                 
             </div>
@@ -265,14 +271,14 @@
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800">AI Alignment, Made Practical</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                    Alignment means making sure AI works toward what we actually value in education—students building understanding, confidence, and equitable outcomes. In this model, Learning Analytics (LA) provides evidence from student work, interactions, and results. Those signals help the AI adapt its next step for each learner and help teachers decide what to do next for the class. The goal is to optimize for learning, not just clicks, speed, or getting the right answer once.
+                    Alignment means making sure AI works toward what we actually value. In education, it includes students building understanding, confidence, and equitable outcomes. In this model, Learning Analytics (LA) provides evidence from student work, interactions, and results. Those signals help the AI adapt its next step for each learner and help teachers decide what to do next for the class. The goal is to optimize for learning, not just clicks, speed, or getting the right answer once.
                 </p>
             </div>
             <div class="max-w-4xl mx-auto grid gap-6 md:grid-cols-2">
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                     <h3 class="text-lg font-semibold text-cyan-800 mb-2">Alignment in the AI Loop</h3>
                     <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
-                        <li>Use LA signals (e.g., misconceptions, timing, attempts) to shape next responses.</li>
+                        <li>Use LA signals (e.g., misconceptions, timing, self-regulation) to shape next responses.</li>
                         <li>Update the learner model to reflect new evidence of understanding.</li>
                         <li>Measure transfer, not only correctness, to avoid superficial gains.</li>
                     </ul>
@@ -284,6 +290,25 @@
                         <li>Act on inequities by comparing outcomes across groups.</li>
                         <li>Close the loop by evaluating impact and iterating.</li>
                     </ul>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto mt-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">AI Alignment in Education: a short primer</h3>
+                    <p class="text-gray-600 mb-2">Designing and enforcing AI alignment in education requires technical, ethical and participatory strategies working together.</p>
+
+                    <button class="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 hover:text-cyan-800" aria-expanded="false" onclick="event.stopPropagation(); const el=this.nextElementSibling; const nowHidden = el.classList.toggle('hidden'); this.setAttribute('aria-expanded', nowHidden ? 'false' : 'true'); this.querySelector('.toggle-label').textContent = nowHidden ? 'Read more' : 'Read less';">
+                        <span class="toggle-label">Read more</span>
+                        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <path d="M7 5l6 5-6 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <div class="mt-4 hidden" aria-hidden="true">
+                        <p class="text-gray-600 mb-2">Key principles include transparency, privacy, fairness and accountability: use diverse data to reduce bias, protect student data, and make AI processes understandable to teachers and learners.</p>
+                        <p class="text-gray-600 mb-2">Practical frameworks emphasize bias mitigation, clear model reporting (e.g., model cards), continuous monitoring and iterative feedback loops that surface where AI helps and where it harms. Teachers and stakeholders should be involved in design and governance; educators also need professional development to interpret LA evidence and act on it.</p>
+                        <p class="text-gray-600"><strong>Where Learning Analytics fits:</strong> LA provides the evidence and continuous feedback that makes alignment workable in practice — it shows whether AI decisions actually improve learning and equity, and it supplies the signals both AI systems and teachers need to adjust.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -387,6 +412,7 @@
                     <li><a href="https://doi.org/10.1038/s41562-024-02004-5" target="_blank" rel="noopener noreferrer" class="text-cyan-700 hover:underline">Promises and challenges of generative artificial intelligence for human learning.</a></li>
                     <li><a href="https://doi.org/10.1111/bjet.13514" target="_blank" rel="noopener noreferrer" class="text-cyan-700 hover:underline">The interplay of learning, analytics and artificial intelligence in education: A vision for hybrid intelligence.</a></li>
                     <li><a href="https://www.mdpi.com/2071-1050/16/7/3034/pdf?version=1712310661" target="_blank" rel="noopener noreferrer" class="text-cyan-700 hover:underline">Generative AI for Customizable Learning Experiences.</a></li>
+                    <li><a href="https://arxiv.org/pdf/2305.18303" target="_blank" rel="noopener noreferrer" class="text-cyan-700 hover:underline">New Era of Artificial Intelligence in Education: Towards a Sustainable Multifaceted Revolution</a> (go to page 15 for concrete Benefits and Challenges.)</li>
                 </ul>
             </div>
         </section>
@@ -397,7 +423,13 @@
         <div class="container mx-auto px-6 py-8 text-center">
             <p>An interactive report on the synergy between Generative AI and Learning Analytics.</p>
             <p class="text-sm text-gray-400 mt-2">Built for educational leaders and technologists.</p>
-            <p class="text-sm text-gray-400 mt-4">Made with support from the Alan Berg, Priyanka Pereira, Dennis Schakel, and Koen Verschuren.</p>
+            <p class="text-sm text-gray-400 mt-4">
+                Made with support from 
+                <span class="font-bold" style="color: #ff7a1a;">Alan Berg</span>, 
+                <span class="font-bold" style="color: #ff7a1a;">Dennis Schakel</span>, 
+                <span class="font-bold" style="color: #ff7a1a;">Priyanka Pereira</span>, and 
+                <span class="font-bold" style="color: #ff7a1a;">Koen Verschuren</span>.
+            </p>
         </div>
     </footer>
     
@@ -535,7 +567,12 @@
                         <p class="text-gray-600 mt-2 text-sm">${risk.description}</p>
                     </div>
                     <div class="mt-4">
-                        <a href="#" class="details-toggle text-sm font-semibold text-cyan-700 hover:text-cyan-800">View Details &rarr;</a>
+                        <a href="#" class="details-toggle text-sm font-semibold text-cyan-700 hover:text-cyan-800 inline-flex items-center">
+                            <span class="details-label">View Details</span>
+                            <svg class="ml-2 w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                <path d="M7 5l6 5-6 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
                     </div>
                     <div class="mt-4 details-container hidden">
                         <div class="${risk.vizType !== 'text' ? 'chart-container' : 'w-full'}">
@@ -554,14 +591,18 @@
                     const isOpening = currentDetails.classList.contains('hidden');
                     
                     document.querySelectorAll('.card').forEach(c => c.classList.remove('ring-2', 'ring-cyan-500'));
-                    document.querySelectorAll('.details-toggle').forEach(t => t.innerHTML = 'View Details &rarr;');
+                    document.querySelectorAll('.details-toggle').forEach(t => {
+                        const lbl = t.querySelector('.details-label');
+                        if (lbl) lbl.textContent = 'View Details';
+                    });
 
                     allDetails.forEach(detail => detail.classList.add('hidden'));
 
                     if (isOpening) {
                         currentDetails.classList.remove('hidden');
                         card.classList.add('ring-2', 'ring-cyan-500');
-                        toggleLink.innerHTML = 'Hide Details &larr;';
+                        const lbl = toggleLink.querySelector('.details-label');
+                        if (lbl) lbl.textContent = 'Hide Details';
                         
                         // Track card opening with GoatCounter
                         if (window.goatcounter) {
@@ -584,9 +625,10 @@
                                 options: risk.options
                             });
                         }
-                    } else {
-                         toggleLink.innerHTML = 'View Details &rarr;';
-                    }
+                } else {
+                    const lbl2 = toggleLink.querySelector('.details-label');
+                    if (lbl2) lbl2.textContent = 'View Details';
+                }
                 };
 
                 card.addEventListener('click', clickHandler);
@@ -599,6 +641,21 @@
 
             const toggleButton = document.getElementById('toggle-la-button');
             const explanation = document.getElementById('model-explanation');
+            const explanationGenai = document.getElementById('explanation-genai');
+            const explanationLa = document.getElementById('explanation-la');
+
+            function showEl(el) {
+                if (!el) return;
+                el.classList.remove('opacity-0', 'pointer-events-none');
+                el.classList.add('opacity-100');
+                el.setAttribute('aria-hidden', 'false');
+            }
+            function hideEl(el) {
+                if (!el) return;
+                el.classList.remove('opacity-100');
+                el.classList.add('opacity-0', 'pointer-events-none');
+                el.setAttribute('aria-hidden', 'true');
+            }
             const hiddenFlowElements = ['la-engine', 'la-arrow-down', 'la-insight', 'la-arrow-right', 'teacher-dashboard', 'la-arrow-to-teacher', 'learner-model']
                 .map(id => document.getElementById(id));
             const studentBox = document.getElementById('student-box');
@@ -622,10 +679,8 @@
                     toggleButton.classList.remove('bg-cyan-600', 'hover:bg-cyan-700');
                     toggleButton.classList.add('bg-amber-500', 'hover:bg-amber-600');
                     modelContainer.classList.add('md:min-h-[300px]');
-                    explanation.innerHTML = `
-                        <h4 class=\"font-bold text-xl mb-2 text-amber-800\">State: GenAI + Learning Analytics Activated</h4>
-                        <p class=\"text-gray-600 max-w-2xl mx-auto\">Now two feedback loops operate in tandem. (1) Student–AI loop: interactions are analyzed by the LA Engine, insights flow back, and the AI adapts its next response—updating the learner model. (2) Teacher loop: class-level insights surface on the Teacher Dashboard to guide instruction and supports.</p>
-                    `;
+                    hideEl(explanationGenai);
+                    showEl(explanationLa);
                     hiddenFlowElements.forEach(el => el.classList.remove('hidden-flow'));
                     
                     aiBox.querySelector('h4').textContent = 'AI Adapts';
@@ -636,10 +691,8 @@
                     toggleButton.classList.remove('bg-amber-500', 'hover:bg-amber-600');
                     toggleButton.classList.add('bg-cyan-600', 'hover:bg-cyan-700');
                     modelContainer.classList.remove('md:min-h-[300px]');
-                    explanation.innerHTML = `
-                        <h4 class="font-bold text-xl mb-2">Current State: GenAI Alone</h4>
-                        <p class="text-gray-600 max-w-2xl mx-auto">This is a simple, one-way transaction. The student asks, the AI answers. We have no insight into whether the student understood, if the answer was truly helpful, or how this interaction compares to others. The system cannot learn or adapt from the experience.</p>
-                    `;
+                    hideEl(explanationLa);
+                    showEl(explanationGenai);
                     hiddenFlowElements.forEach(el => el.classList.add('hidden-flow'));
                     
                     aiBox.querySelector('h4').textContent = 'Generative AI';
