@@ -11,7 +11,14 @@ interface Props {
   pubDate?: string;
 }
 
-const { title, subtitle, coverImg, heroAlt, tags = [], pubDate } = Astro.props as Props;
+const { frontmatter } = Astro.props;
+const title = frontmatter?.title || Astro.props.title;
+const subtitle = frontmatter?.subtitle || Astro.props.subtitle;
+const coverImg = frontmatter?.coverImg || Astro.props.coverImg;
+const heroAlt = frontmatter?.heroAlt || Astro.props.heroAlt;
+const tags = frontmatter?.tags || Astro.props.tags || [];
+const pubDate = frontmatter?.pubDate || Astro.props.pubDate;
+
 const formattedDate = pubDate
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(
       new Date(`${pubDate}T00:00:00Z`)
@@ -21,35 +28,55 @@ const formattedDate = pubDate
 
 <Layout title={`${title} – Manuel Valle Torre`} description={subtitle ?? title}>
   <Header />
-  <article class="mt-6 space-y-8">
-    <header class="space-y-4">
-      <div class="space-y-2">
-        <p class="text-sm uppercase tracking-[0.3em] text-accent dark:text-accent-dark">Sauce Recipe</p>
-        <h1 class="text-4xl font-semibold text-gray-900 dark:text-white">{title}</h1>
-        {subtitle && <p class="text-lg text-gray-600 dark:text-gray-400">{subtitle}</p>}
-      </div>
-      <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-        {formattedDate && <time datetime={pubDate}>{formattedDate}</time>}
-        {tags.length > 0 && (
-          <div class="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span class="px-3 py-1 rounded-full bg-accent/10 text-accent dark:text-accent-dark text-xs tracking-wide">
-                {tag}
-              </span>
-            ))}
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      
+      <!-- Left Column: Content -->
+      <article class="space-y-8 order-2 md:order-1">
+        <header class="space-y-6 border-b-2 border-black dark:border-white pb-6">
+          <div class="space-y-2">
+            <p class="font-analog-mono text-xs uppercase tracking-widest text-gray-500">
+              // SPECIMEN_LOG: {pubDate}
+            </p>
+            <h1 class="text-5xl font-analog-serif font-black text-black dark:text-white leading-none">
+              {title}
+            </h1>
+            {subtitle && <p class="text-xl font-analog-serif text-gray-600 dark:text-gray-400 italic">{subtitle}</p>}
           </div>
-        )}
-      </div>
-    </header>
 
-    {coverImg && (
-      <div class="overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 shadow-sm">
-        <img src={coverImg} alt={heroAlt ?? title} class="w-full object-cover" loading="lazy" />
-      </div>
-    )}
+          {tags.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span class="font-analog-mono text-xs border border-gray-400 px-2 py-1 uppercase bg-gray-50 dark:bg-gray-800">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
 
-    <div class="prose prose-lg dark:prose-invert max-w-none">
-      <slot />
+        <div class="prose prose-lg dark:prose-invert font-analog-serif max-w-none">
+          <slot />
+        </div>
+      </article>
+
+      <!-- Right Column: Image -->
+      {coverImg && (
+        <aside class="order-1 md:order-2 md:sticky md:top-24">
+          <div class="border-2 border-black dark:border-white p-2 bg-white dark:bg-gray-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transform rotate-1">
+            <img 
+              src={coverImg} 
+              alt={heroAlt ?? title} 
+              class="w-full aspect-[4/5] object-cover grayscale-0 hover:grayscale transition-all duration-700" 
+              loading="lazy" 
+            />
+            <div class="pt-2 text-center font-analog-mono text-xs uppercase tracking-wide">
+              Fig A. {title} Visual Reference
+            </div>
+          </div>
+        </aside>
+      )}
+
     </div>
-  </article>
+  </main>
 </Layout>

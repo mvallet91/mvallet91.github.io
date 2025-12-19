@@ -28,43 +28,61 @@ const reports = [
 >
   <Header slot="header" />
 
-  <main class="space-y-12">
-    <section class="space-y-4">
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Reports</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
-        Occasionally I package research notes, experiments, and provocations into more interactive formats.
-        These reports mix narrative, data visualisations, and design explorations to explain how we can use
-        Learning Analytics and AI responsibly in education.
+  <main class="max-w-4xl mx-auto space-y-12 px-6 py-12">
+    <!-- Editorial Header using Layout standard? No, manual override for specific page feel -->
+    <section class="border-b-2 border-black dark:border-white pb-8">
+      <h1 class="text-6xl font-analog-serif font-black tracking-tighter text-black dark:text-white uppercase mb-4">
+        Reports
+      </h1>
+      <p class="text-xl font-analog-serif text-gray-800 dark:text-gray-200 max-w-2xl leading-relaxed">
+        Interactive research notes and provocations. <br>
+        <span class="font-analog-mono text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 mt-2 inline-block border border-gray-300 dark:border-gray-600">
+          // FOLDER: INTERACTIVE_CASE_STUDIES
+        </span>
       </p>
     </section>
 
-    <section class="grid gap-8">
-      {reports.map((report) => (
-        <article class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <div class="p-8 space-y-4">
-            <div class="flex flex-wrap gap-2 text-sm text-accent">
-              {report.tags.map((tag) => (
-                <span class="px-3 py-1 rounded-full bg-accent/10 text-accent dark:text-accent-dark">
-                  {tag}
-                </span>
-              ))}
+    <div class="grid gap-12">
+      {reports.map((report, index) => (
+        <article class="group relative grid md:grid-cols-[200px,1fr] gap-8 items-start border-b border-dashed border-gray-300 dark:border-gray-700 pb-12 last:border-0">
+          
+          <!-- Metadata Column -->
+          <div class="font-analog-mono text-xs uppercase tracking-widest text-gray-500 pt-2">
+            <div class="mb-2">
+              <span class="block text-black dark:text-white font-bold text-lg">
+                NO. {(index + 1).toString().padStart(3, '0')}
+              </span>
             </div>
-            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
-              {report.title}
+            <div class="flex flex-wrap gap-2">
+               {report.tags.map(tag => (
+                 <span class="border border-gray-300 dark:border-gray-600 px-1">{tag}</span>
+               ))}
+            </div>
+          </div>
+
+          <!-- Content Column -->
+          <div class="space-y-4">
+            <h2 class="text-3xl font-analog-serif font-bold text-black dark:text-white group-hover:underline decoration-4 underline-offset-4">
+              <a href={report.href}>
+                {report.title}
+              </a>
             </h2>
-            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p class="font-analog-serif text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               {report.summary}
             </p>
-            <a
-              href={report.href}
-              class="inline-flex items-center gap-2 font-medium text-accent hover:text-accent-dark transition-colors"
-            >
-              {report.cta}
-              <span aria-hidden="true">→</span>
-            </a>
+            
+            <div class="pt-2">
+              <a 
+                href={report.href}
+                class="inline-block font-analog-mono text-sm font-bold bg-black text-white dark:bg-white dark:text-black px-4 py-2 hover:opacity-80 transition-opacity"
+              >
+                {report.cta} ->
+              </a>
+            </div>
           </div>
+
         </article>
       ))}
-    </section>
+    </div>
   </main>
 </Layout>

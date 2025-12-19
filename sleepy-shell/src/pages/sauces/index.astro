@@ -16,59 +16,66 @@ const sortedSauces = sauces.sort((a, b) => {
 >
   <Header slot="header" />
 
-  <main class="space-y-12">
-    <section class="space-y-4">
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Hot Sauces</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
-        The kitchen lab where I unwind. These sauces blend fermentation, smoke, and bright citrusy heat.
-        Each bottle captures a mood—from mellow garlic confit to explosive habanero ferments.
+  <main class="max-w-4xl mx-auto space-y-12 px-6 py-12">
+    <section class="border-b-2 border-black dark:border-white pb-8">
+      <h1 class="text-6xl font-analog-serif font-black tracking-tighter text-black dark:text-white uppercase mb-4">
+        Hot Sauces
+      </h1>
+      <p class="text-xl font-analog-serif text-gray-800 dark:text-gray-200 max-w-2xl leading-relaxed">
+        The kitchen lab. Experiments with fermentation, pH, and Scoville units.
       </p>
+      <div class="mt-4 font-analog-mono text-xs uppercase text-gray-500 border border-gray-300 inline-block px-2 py-1">
+        LAB_STATUS: ACTIVE_FERMENTATION
+      </div>
     </section>
 
-    <section class="grid gap-8">
+    <div class="space-y-2">
+      <!-- Table Header -->
+      <div class="hidden md:grid grid-cols-[100px,2fr,1fr,150px] gap-4 font-analog-mono text-xs font-bold uppercase border-b-2 border-black dark:border-white pb-2 mb-4">
+        <div>Date</div>
+        <div>Specimen Name</div>
+        <div>Tags</div>
+        <div>Status</div>
+      </div>
+
       {sortedSauces.map((sauce) => (
-        <article class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-          <a href={sauce.url} class="flex flex-col md:flex-row">
-            {sauce.frontmatter.coverImg && (
-              <img
-                src={sauce.frontmatter.coverImg}
-                alt={sauce.frontmatter.heroAlt ?? sauce.frontmatter.title}
-                class="md:w-64 h-48 md:h-auto object-cover"
-                loading="lazy"
-              />
-            )}
-            <div class="p-8 space-y-3 flex-1">
-              <div class="flex flex-wrap gap-2 text-sm text-accent">
-                {(sauce.frontmatter.tags ?? []).map((tag) => (
-                  <span class="px-3 py-1 rounded-full bg-accent/10 text-accent dark:text-accent-dark">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
-                {sauce.frontmatter.title}
-              </h2>
-              {sauce.frontmatter.subtitle && (
-                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {sauce.frontmatter.subtitle}
-                </p>
-              )}
-              {sauce.frontmatter.pubDate && (
-                <time
-                  datetime={sauce.frontmatter.pubDate}
-                  class="block text-sm text-gray-500 dark:text-gray-400"
-                >
-                  {new Intl.DateTimeFormat('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  }).format(new Date(`${sauce.frontmatter.pubDate}T00:00:00Z`))}
-                </time>
-              )}
+        <article class="group relative">
+           <a href={sauce.url} class="block md:grid md:grid-cols-[100px,2fr,1fr,150px] gap-4 items-center border-b border-gray-200 dark:border-gray-800 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+            
+            <!-- Date -->
+            <div class="font-analog-mono text-xs text-gray-500 mb-2 md:mb-0">
+               {sauce.frontmatter.pubDate}
             </div>
-          </a>
+
+            <!-- Name & Desc -->
+            <div class="pr-4">
+               <h2 class="text-2xl font-analog-serif font-bold text-black dark:text-white leading-none group-hover:underline decoration-2">
+                 {sauce.frontmatter.title}
+               </h2>
+               {sauce.frontmatter.subtitle && (
+                 <p class="font-analog-serif text-gray-600 text-sm mt-1 italic">
+                   {sauce.frontmatter.subtitle}
+                 </p>
+               )}
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mb-2 md:mb-0">
+               {(sauce.frontmatter.tags ?? []).map((tag) => (
+                  <span class="font-analog-mono text-[10px] border border-gray-400 px-1 uppercase">{tag}</span>
+               ))}
+            </div>
+
+            <!-- Action -->
+            <div class="text-right md:text-left">
+               <span class="font-analog-mono text-xs font-bold bg-black text-white px-2 py-1 invisible group-hover:visible">
+                 VIEW_LOG ->
+               </span>
+            </div>
+
+           </a>
         </article>
       ))}
-    </section>
+    </div>
   </main>
 </Layout>

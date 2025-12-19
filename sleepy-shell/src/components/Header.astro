@@ -3,31 +3,30 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Publications", href: "/publications" },
   { label: "Reports", href: "/reports" },
-  { label: "Sauces", href: "/sauces" },
-  { label: "Garden", href: "https://mvallet91.github.io/garden/", external: true }
+  { label: "Sauces", href: "/sauces" }
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-sm">
-  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-      <a href="/" class="text-xl font-bold text-cyan-800">
-        Manuel Valle Torre
+<header class="border-b-4 border-black dark:border-white bg-white dark:bg-gray-900">
+  <nav class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <a href="/" class="text-3xl font-analog-serif font-black text-black dark:text-white tracking-tight hover:underline decoration-2 underline-offset-4">
+        MVT.
       </a>
-      <div class="hidden md:flex space-x-8">
+      <div class="flex flex-wrap justify-center gap-6 md:gap-8">
         {navItems.map(item => (
           <a 
             href={item.href}
             target={item.external ? "_blank" : undefined}
             rel={item.external ? "noopener noreferrer" : undefined}
             class:list={[
-              "nav-link text-gray-600 border-b-2 border-transparent pb-1",
-              "hover:text-cyan-800 hover:border-cyan-800",
-               currentPath === item.href && "active text-cyan-800 border-cyan-800"
+              "font-analog-mono text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-black dark:hover:text-white transition-colors",
+              currentPath.startsWith(item.href) && item.href !== '/' ? "text-black dark:text-white underline decoration-2 underline-offset-4" : "",
+              currentPath === item.href ? "text-black dark:text-white underline decoration-2 underline-offset-4" : ""
             ]}
           >
-            {item.label}
+            [{item.label}]
           </a>
         ))}
       </div>

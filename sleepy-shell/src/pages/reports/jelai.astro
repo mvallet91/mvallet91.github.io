@@ -1,5 +1,22 @@
 ---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
 import reportHtml from '../../content/reports/jelai.html?raw';
+
+// Extract HEAD content (scripts, styles)
+const headMatch = reportHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
+const headContent = headMatch ? headMatch[1] : '';
+
+// Extract BODY content
+const bodyMatch = reportHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+let bodyContent = bodyMatch ? bodyMatch[1] : '';
+
+// Remove the existing <header> (which contains the old nav)
+bodyContent = bodyContent.replace(/<header[^>]*>[\s\S]*?<\/header>/i, '');
 ---
 
-<Fragment set:html={reportHtml} />
+<Layout title="JELAI: AI & Learning Analytics in Jupyter Notebooks">
+  <Fragment slot="head" set:html={headContent} />
+  <Header slot="header" />
+  <Fragment set:html={bodyContent} />
+</Layout>

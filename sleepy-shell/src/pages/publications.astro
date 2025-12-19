@@ -19,65 +19,55 @@ const years = Object.keys(pubsByYear).sort((a, b) => b - a);
 >
   <Header slot="header" />
   
-  <main class="space-y-12">
-    <div class="space-y-4">
-      <h1 class="text-4xl font-bold">Publications</h1>
+  <main class="max-w-4xl mx-auto space-y-16 px-4">
+    <!-- Page Title -->
+    <div class="border-b-4 border-black dark:border-white pb-6">
+      <h1 class="text-6xl font-analog-serif font-black tracking-tighter text-black dark:text-white uppercase mb-2">
+        Publications
+      </h1>
+      <p class="font-analog-mono text-gray-600 dark:text-gray-400 text-sm">
+        // ARCHIVE_ID: MVT_PUBS_2026 //
+      </p>
     </div>
 
     {years.map(year => (
-      <section class="space-y-6">
-        <h2 class="text-3xl font-bold relative inline-block">
+      <section class="relative pl-0 md:pl-28">
+        <!-- Year Marker (Margin Note style) -->
+        <h2 class="md:absolute md:left-0 md:top-0 text-xl font-analog-mono font-bold text-gray-400 dark:text-gray-500 mb-6 md:mb-0 transform md:-rotate-90 md:origin-top-right md:-translate-x-8">
           {year}
-          <div class="absolute -z-10 -inset-2 rounded-lg bg-gradient-to-r from-accent/10 to-[#00dfd8]/10 blur-lg">
-          </div>
         </h2>
-        <div class="space-y-6">
+
+        <div class="space-y-12 border-l-2 border-gray-200 dark:border-gray-800 pl-6 md:pl-8">
           {pubsByYear[year].map((pub) => (
-            <article 
-              class="group p-6 rounded-lg bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm 
-                     shadow-sm hover:shadow-md transition-all duration-300
-                     hover:translate-x-1 hover:-translate-y-1"
-            >
-              <h3 class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r 
-                         from-accent to-[#00dfd8] opacity-80 group-hover:opacity-100 transition-opacity">
-                {pub.title}
+            <article class="group relative">
+              
+              <!-- Title with highlighter effect -->
+              <h3 class="text-2xl font-analog-serif font-bold text-gray-900 dark:text-white leading-tight mb-2">
+                 <span class="analog-highlighter px-1 inline-block">
+                  {pub.title}
+                 </span>
               </h3>
-              <p class="mt-2 text-gray-600 dark:text-gray-400">
+
+              <!-- Authors -->
+              <p class="font-analog-serif text-lg text-gray-700 dark:text-gray-300 italic mb-3">
                 {pub.authors}
               </p>
-              <div class="mt-3 flex flex-wrap gap-3 text-sm">
-                <span class="bg-blue-100 dark:bg-blue-900 px-2 py-1 rounded">
-                  {pub.type}
-                </span>
-                <span class="text-gray-500 dark:text-gray-400">
+
+              <!-- Metadata Line -->
+              <div class="flex flex-wrap items-center gap-4 text-sm font-analog-mono text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <span class="font-bold text-black dark:text-white bg-gray-100 dark:bg-gray-800 px-2 py-0.5 border border-gray-900 dark:border-gray-100">
                   {pub.venue}
                 </span>
-              </div>
-              <div class="mt-4 flex flex-wrap gap-4">
+                <span>{pub.type}</span>
+                
                 {pub.doi && (
-                  <a 
-                    href={pub.doi}
-                    class="inline-flex items-center gap-1 text-accent hover:text-accent-dark transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Publication 
-                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" />
-                    </svg>
+                  <a href={pub.doi} target="_blank" class="hover:underline decoration-2 underline-offset-2">
+                    DOI_LINK
                   </a>
                 )}
                 {pub.pdf && (
-                  <a 
-                    href={pub.pdf}
-                    class="inline-flex items-center gap-1 text-accent hover:text-accent-dark transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm6 10a.75.75 0 01-.75-.75V8.707l-1.72 1.72a.75.75 0 01-1.06-1.06l3-3a.75.75 0 011.06 0l3 3a.75.75 0 11-1.06 1.06l-1.72-1.72V11.25A.75.75 0 0110 12z" clip-rule="evenodd" />
-                    </svg>
-                    PDF
+                  <a href={pub.pdf} target="_blank" class="hover:underline decoration-2 underline-offset-2 text-black dark:text-white font-bold">
+                    [PDF]
                   </a>
                 )}
               </div>

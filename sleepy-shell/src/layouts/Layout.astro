@@ -24,6 +24,7 @@ import '../styles/global.css';
     {import.meta.env.MODE === 'production' ? (
       <script data-goatcounter="https://mvallet91.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     ) : null}
+    <slot name="head" />
   </head>
   <body class="min-h-screen bg-white dark:bg-gray-900">
     <slot name="header" />

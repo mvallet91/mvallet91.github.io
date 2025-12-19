@@ -36,3 +36,23 @@ html {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.font-analog-serif {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+}
+
+.font-analog-mono {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.analog-highlighter {
+  transition: background-size 0.2s ease-in-out;
+  background-image: linear-gradient(120deg, #FDE047 0%, #FDE047 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: 0 0;
+}
+
+.group:hover .analog-highlighter {
+  background-size: 100% 100%;
+}
