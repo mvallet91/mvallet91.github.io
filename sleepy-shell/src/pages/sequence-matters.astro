@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout 
+  title="Sequence Matters - Dashboard"
+  description="Interactive dashboard of learning sequence articles."
+>
+  <Header slot="header" />
+  
+  <main class="max-w-[95vw] mx-auto px-4 py-8">
+    <div class="mb-8">
+        <h1 class="text-4xl font-analog-serif font-black mb-4">Sequence Matters Review</h1>
+        <p class="font-analog-serif max-w-prose mb-4">
+            Interactive dashboard for the Learning Sequences Review. Select columns to visualize their specific distributions and relationships.
+        </p>
+    </div>
+
+    <!-- Controls / Filters -->
+    <div class="mb-4 bg-white p-4 border border-gray-300 shadow-sm">
+        <h3 class="font-analog-mono text-sm font-bold uppercase mb-2">Column Selection (for Visualization)</h3>
+        <div id="column-selector" class="flex flex-wrap gap-2 text-sm font-analog-mono">
+            <!-- Checkboxes will be injected here -->
+        </div>
+    </div>
+
+    <!-- Charts Area -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <!-- Parcats (Sankey-like) -->
+        <div class="lg:col-span-2 bg-white border border-gray-300 p-2 shadow-sm min-h-[400px]">
+            <div id="parcats-chart" class="w-full h-[500px]"></div>
+        </div>
+
+        <!-- Bar Charts Container -->
+        <div id="bar-charts-container" class="space-y-4 max-h-[500px] overflow-y-auto">
+            <!-- Bar charts injected here -->
+        </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="overflow-x-auto bg-white border border-gray-300 shadow-sm">
+        <table id="data-table" class="w-full text-sm text-left border-collapse">
+            <thead class="bg-gray-100 font-analog-mono text-xs uppercase sticky top-0">
+                <!-- Headers injected here -->
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                <!-- Rows injected here -->
+            </tbody>
+        </table>
+    </div>
+
+  </main>
+</Layout>
+
+<script>
+    import Plotly from 'plotly.js-dist-min';
+
+    let rawData = [];
+    let selectedColumns = ['Domain', 'Task']; // Default selection matches app.py
+
+    async function init() {
+        try {
+            const response = await fetch('/data/articles.json');
+            rawData = await response.json();
+            
+            if (rawData.length === 0) return;
+
+            renderColumnSelector();
+            renderTable();
+            updateCharts();
+        } catch (e) {
+            console.error("Failed to load data:", e);
+        }
+    }
+
+    // --- Rendering Controls ---
+    function renderColumnSelector() {
+        const container = document.getElementById('column-selector');
+        const columns = Object.keys(rawData[0]);
+        
+        container.innerHTML = '';
+        columns.forEach(col => {
+            if (col === 'Cite') return; // Skip Cite for viz as per app.py logic roughly
+
+            const label = document.createElement('label');
+            label.className = "flex items-center gap-1 cursor-pointer bg-gray-50 px-2 py-1 border border-gray-200 hover:bg-gray-100";
+            
+            const input = document.createElement('input');
+            input.type = "checkbox";
+            input.value = col;
+            input.checked = selectedColumns.includes(col);
+            input.className = "accent-black";
+            
+            input.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    if (!selectedColumns.includes(col)) selectedColumns.push(col);
+                } else {
+                    selectedColumns = selectedColumns.filter(c => c !== col);
+                }
+                updateCharts();
+            });
+
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(col));
+            container.appendChild(label);
+        });
+    }
+
+    // --- Rendering Table ---
+    function renderTable() {
+        const tableHead = document.querySelector('#data-table thead');
+        const tableBody = document.querySelector('#data-table tbody');
+        const columns = Object.keys(rawData[0]);
+
+        // Headers
+        let headerRow = '<tr>';
+        columns.forEach(col => {
+            const widthStyle = col === 'Cite' ? 'width: 20%; min-width: 200px;' : '';
+            headerRow += `<th class="px-4 py-2 border-b border-gray-300 truncate" style="${widthStyle}" title="${col}">${col}</th>`;
+        });
+        headerRow += '</tr>';
+        tableHead.innerHTML = headerRow;
+
+        // Rows
+        // Limit to 100 rows for performance if needed, or implement pagination. 
+        // For 47 records, rendering all is fine.
+        let bodyHtml = '';
+        rawData.forEach((row, idx) => {
+            bodyHtml += `<tr class="hover:bg-blue-50/50 transition-colors">`;
+            columns.forEach(col => {
+                let val = row[col] || '';
+                // Simple markdown-ish rendering for Cite if needed, otherwise just text
+                // app.py uses markdown for Cite.
+                if (col === 'Cite') {
+                    // Strip some common markdown chars for simple display if needed, or leave as is.
+                    // For now, raw text with basic wrapping.
+                    bodyHtml += `<td class="px-4 py-2 whitespace-normal align-top text-xs">${val}</td>`;
+                } else {
+                    bodyHtml += `<td class="px-4 py-2 whitespace-nowrap align-top">${val}</td>`;
+                }
+            });
+            bodyHtml += `</tr>`;
+        });
+        tableBody.innerHTML = bodyHtml;
+    }
+
+    // --- Rendering Charts ---
+    function updateCharts() {
+        updateBarCharts();
+        updateParcats();
+    }
+
+    function updateBarCharts() {
+        const container = document.getElementById('bar-charts-container');
+        container.innerHTML = ''; // Clear existing
+
+        selectedColumns.forEach(imgCol => {
+            if (!rawData[0].hasOwnProperty(imgCol)) return;
+
+            // Calculate value counts
+            const counts = {};
+            rawData.forEach(r => {
+                const val = r[imgCol];
+                counts[val] = (counts[val] || 0) + 1;
+            });
+
+            // Sort by count descending
+            const sortedKeys = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+            const xVal = sortedKeys;
+            const yVal = sortedKeys.map(k => counts[k]);
+
+            const wrapper = document.createElement('div');
+            wrapper.className = "bg-white border border-gray-200 p-2 shadow-sm";
+            const divId = `bar-${imgCol.replace(/\s+/g, '-')}`;
+            wrapper.innerHTML = `<h4 class="font-analog-mono text-xs font-bold mb-1 border-b border-gray-100 pb-1">${imgCol}</h4><div id="${divId}" style="height: 200px;"></div>`;
+            container.appendChild(wrapper);
+
+            Plotly.newPlot(divId, [{
+                x: xVal,
+                y: yVal,
+                type: 'bar',
+                marker: { color: 'lightsteelblue' }
+            }], {
+                margin: { t: 10, l: 30, r: 10, b: 60 },
+                xaxis: { title: { text: '' }, automargin: true },
+                yaxis: { title: { text: '' }, automargin: true }
+            }, { responsive: true, displayModeBar: false });
+        });
+    }
+
+    function updateParcats() {
+        if (selectedColumns.length < 2) {
+            Plotly.purge('parcats-chart');
+            return;
+        }
+
+        // Prepare dimensions
+        const dimensions = selectedColumns.map(col => {
+            return {
+                label: col,
+                values: rawData.map(r => r[col])
+            };
+        });
+
+        // Basic coloring - just solid for now or attempting to replicate the 'active cell' logic is too complex for static without heavy state.
+        // We'll use a simple color scale based on the first selected column or just index.
+        const colorVal = new Array(rawData.length).fill(0).map((_, i) => i / rawData.length); // Gradient
+
+        const data = [{
+            type: 'parcats',
+            dimensions: dimensions,
+            line: {
+                color: colorVal,
+                colorscale: 'Blues',
+                shape: 'hspline'
+            },
+            labelfont: { size: 14, family: 'serif' },
+            tickfont: { size: 12, family: 'serif' },
+            arrangement: 'freeform'
+        }];
+
+        const layout = {
+            margin: { t: 30, b: 20, l: 50, r: 50 },
+            title: selectedColumns.join(' - '),
+            font: { family: 'serif' }
+        };
+
+        Plotly.newPlot('parcats-chart', data, layout, { responsive: true });
+    }
+
+    // Run
+    init();
+
+</script>

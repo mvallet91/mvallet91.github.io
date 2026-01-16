@@ -2,13 +2,15 @@
   "dependencies": {
     "@astrojs/mdx": "^3.1.9",
     "@astrojs/tailwind": "^5.1.2",
-    "astro": "^4.16.16"
+    "astro": "^4.16.16",
+    "plotly.js-dist-min": "^3.3.1",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15"
   },
   "scripts": {
-  "build": "astro build",
-  "deploy": "npm run build && xcopy sleepy-shell\\dist\\* . /E /H /C /I && git add . && git commit -m \"Deploy Astro site\" && git push origin gh-pages"
+    "build": "astro build",
+    "deploy": "npm run build && xcopy sleepy-shell\\dist\\* . /E /H /C /I && git add . && git commit -m \"Deploy Astro site\" && git push origin gh-pages"
   }
 }
