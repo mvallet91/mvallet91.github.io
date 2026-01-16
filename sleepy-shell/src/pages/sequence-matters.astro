@@ -44,6 +44,9 @@ import Header from '../components/Header.astro';
             <thead class="bg-gray-100 font-analog-mono text-xs uppercase sticky top-0">
                 <!-- Headers injected here -->
             </thead>
+            <thead class="bg-gray-50 sticky top-0" id="filter-row">
+                <!-- Filter inputs injected here -->
+            </thead>
             <tbody class="divide-y divide-gray-200">
                 <!-- Rows injected here -->
             </tbody>
@@ -108,8 +111,11 @@ import Header from '../components/Header.astro';
     }
 
     // --- Rendering Table ---
+    let columnFilters = {}; // Track filter values per column
+
     function renderTable() {
         const tableHead = document.querySelector('#data-table thead');
+        const filterRow = document.getElementById('filter-row');
         const tableBody = document.querySelector('#data-table tbody');
         const columns = Object.keys(rawData[0]);
 
@@ -122,19 +128,45 @@ import Header from '../components/Header.astro';
         headerRow += '</tr>';
         tableHead.innerHTML = headerRow;
 
-        // Rows
-        // Limit to 100 rows for performance if needed, or implement pagination. 
-        // For 47 records, rendering all is fine.
+        // Filter Row
+        let filterHtml = '<tr>';
+        columns.forEach(col => {
+            filterHtml += `<th class="px-2 py-1 border-b border-gray-200">
+                <input 
+                    type="text" 
+                    placeholder="Filter..." 
+                    class="w-full px-2 py-1 text-xs border border-gray-300 focus:border-black focus:outline-none font-mono"
+                    data-column="${col}"
+                    id="filter-${col.replace(/\s+/g, '-')}"
+                />
+            </th>`;
+        });
+        filterHtml += '</tr>';
+        filterRow.innerHTML = filterHtml;
+
+        // Add event listeners to filter inputs
+        columns.forEach(col => {
+            const input = document.getElementById(`filter-${col.replace(/\s+/g, '-')}`);
+            input.addEventListener('input', (e) => {
+                columnFilters[col] = e.target.value.toLowerCase();
+                filterTableRows();
+            });
+        });
+
+        // Initial render
+        renderTableRows();
+    }
+
+    function renderTableRows() {
+        const tableBody = document.querySelector('#data-table tbody');
+        const columns = Object.keys(rawData[0]);
+        
         let bodyHtml = '';
         rawData.forEach((row, idx) => {
-            bodyHtml += `<tr class="hover:bg-blue-50/50 transition-colors">`;
+            bodyHtml += `<tr class="hover:bg-blue-50/50 transition-colors" data-row-index="${idx}">`;
             columns.forEach(col => {
                 let val = row[col] || '';
-                // Simple markdown-ish rendering for Cite if needed, otherwise just text
-                // app.py uses markdown for Cite.
                 if (col === 'Cite') {
-                    // Strip some common markdown chars for simple display if needed, or leave as is.
-                    // For now, raw text with basic wrapping.
                     bodyHtml += `<td class="px-4 py-2 whitespace-normal align-top text-xs">${val}</td>`;
                 } else {
                     bodyHtml += `<td class="px-4 py-2 whitespace-nowrap align-top">${val}</td>`;
@@ -143,6 +175,29 @@ import Header from '../components/Header.astro';
             bodyHtml += `</tr>`;
         });
         tableBody.innerHTML = bodyHtml;
+    }
+
+    function filterTableRows() {
+        const rows = document.querySelectorAll('#data-table tbody tr');
+        
+        rows.forEach(row => {
+            const rowIndex = parseInt(row.getAttribute('data-row-index'));
+            const rowData = rawData[rowIndex];
+            let show = true;
+
+            // Check all active filters
+            for (const [col, filterValue] of Object.entries(columnFilters)) {
+                if (filterValue && filterValue.trim() !== '') {
+                    const cellValue = (rowData[col] || '').toString().toLowerCase();
+                    if (!cellValue.includes(filterValue)) {
+                        show = false;
+                        break;
+                    }
+                }
+            }
+
+            row.style.display = show ? '' : 'none';
+        });
     }
 
     // --- Rendering Charts ---
