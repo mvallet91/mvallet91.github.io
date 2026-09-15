@@ -79,6 +79,19 @@ const papers = [
     detail: 'Profiling and scaffolding help-seeking with an AI tutor.'
   }
 ];
+
+const propositions = [
+  'Thanks to Generative AI (GenAI), the quality of unsupervised artifacts--- like an essay or code snippet---went from imperfect to useless as a proxy for student competence. (This thesis)',
+  'Unproductive help-seeking with GenAI does not self-correct over time; without explicit intervention, use of AI tools tends toward dependence rather than learning. (This thesis)',
+  'The value of AI in education lies not in optimizing performance but in supporting the learning process: a well-timed encouragement can help more than a precise explanation. (This thesis)',
+  'Delegation is a valid professional strategy; education must shift from forbidding GenAI delegation to teaching students when to use it and how to formulate and verify the output of that delegation.',
+  'We design GenAI tutors to be conversational partners, but students use them as vending machines; pedagogical design must bridge the gap between how tools are actually used and how we imagine they should be. (This thesis)',
+  'Learning Analytics often falls into analysis paralysis, carefully mapping the learning journey without actually intervening, while GenAI implementation is opportunistic; effective educational technology requires us to find a middle ground.',
+  'The view from the mountain top may be the same whether you arrive by bicycle or by car, but the joy is in the pedaling; in our rush to automate the outcome, we risk losing the pleasure of the process.',
+  'Educational research can no longer afford to be paralyzed by systemic inertia; to keep pace with technological change, schools, teachers, and students must become active participants in the research process.',
+  'Beware of the illusion of competence: plumbing tutorials and instructions will give you the required knowledge, but only water will tell you if your installation is right.',
+  "Writing a dissertation on `process over product' is ironic, given that the work is ultimately judged by what is captured in this book rather than the years of process."
+];
 ---
 
 <Layout
@@ -146,6 +159,21 @@ const papers = [
           </div>
         ))}
       </div>
+    </section>
+
+    <section aria-labelledby="propositions-title" class="border-y-2 border-dashed border-gray-300 dark:border-gray-700 py-14">
+      <div class="max-w-3xl">
+        <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400">Propositions</p>
+        <h2 id="propositions-title" class="mt-3 text-4xl md:text-5xl font-analog-serif font-bold text-black dark:text-white">Ten positions on process, AI, and learning.</h2>
+      </div>
+      <ol class="mt-10 grid md:grid-cols-2 gap-4 list-none p-0">
+        {propositions.map((proposition, index) => (
+          <li class="group border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 transition-colors hover:border-amber-600 dark:hover:border-amber-400">
+            <span class="font-analog-mono text-sm font-bold text-amber-700 dark:text-amber-400">{(index + 1).toString().padStart(2, '0')}</span>
+            <p class="mt-4 font-analog-serif text-lg leading-relaxed text-gray-800 dark:text-gray-200">{proposition}</p>
+          </li>
+        ))}
+      </ol>
     </section>
 
     <section class="grid md:grid-cols-[1fr,280px] gap-10 items-center border-y-2 border-dashed border-gray-300 dark:border-gray-700 py-14">
