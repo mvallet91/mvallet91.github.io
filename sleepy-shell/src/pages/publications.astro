@@ -40,36 +40,45 @@ const years = Object.keys(pubsByYear).sort((a, b) => b - a);
         <div class="space-y-12 border-l-2 border-gray-200 dark:border-gray-800 pl-6 md:pl-8">
           {pubsByYear[year].map((pub) => (
             <article class="group relative">
-              
-              <!-- Title with highlighter effect -->
-              <h3 class="text-2xl font-analog-serif font-bold text-gray-900 dark:text-white leading-tight mb-2">
-                 <span class="analog-highlighter px-1 inline-block">
-                  {pub.title}
-                 </span>
-              </h3>
-
-              <!-- Authors -->
-              <p class="font-analog-serif text-lg text-gray-700 dark:text-gray-300 italic mb-3">
-                {pub.authors}
-              </p>
-
-              <!-- Metadata Line -->
-              <div class="flex flex-wrap items-center gap-4 text-sm font-analog-mono text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <span class="font-bold text-black dark:text-white bg-gray-100 dark:bg-gray-800 px-2 py-0.5 border border-gray-900 dark:border-gray-100">
-                  {pub.venue}
-                </span>
-                <span>{pub.type}</span>
-                
-                {pub.doi && (
-                  <a href={pub.doi} target="_blank" class="hover:underline decoration-2 underline-offset-2">
-                    DOI_LINK
+              <div class={pub.cover ? 'flex flex-col sm:flex-row gap-6' : ''}>
+                {pub.cover && pub.pdf && (
+                  <a href={pub.pdf} target="_blank" rel="noopener noreferrer" class="block shrink-0 self-start" aria-label={`Open ${pub.title} PDF`}>
+                    <img src={pub.cover} alt={`Cover of ${pub.title}`} width="140" height="201" loading="lazy" class="w-[140px] shadow-md transition-transform duration-200 group-hover:-translate-y-1" />
                   </a>
                 )}
-                {pub.pdf && (
-                  <a href={pub.pdf} target="_blank" class="hover:underline decoration-2 underline-offset-2 text-black dark:text-white font-bold">
-                    [PDF]
-                  </a>
-                )}
+
+                <div class="min-w-0">
+                  <!-- Title with highlighter effect -->
+                  <h3 class="text-2xl font-analog-serif font-bold text-gray-900 dark:text-white leading-tight mb-2">
+                    <span class="analog-highlighter px-1 inline-block">
+                      {pub.title}
+                    </span>
+                  </h3>
+
+                  <!-- Authors -->
+                  <p class="font-analog-serif text-lg text-gray-700 dark:text-gray-300 italic mb-3">
+                    {pub.authors}
+                  </p>
+
+                  <!-- Metadata Line -->
+                  <div class="flex flex-wrap items-center gap-4 text-sm font-analog-mono text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    <span class="font-bold text-black dark:text-white bg-gray-100 dark:bg-gray-800 px-2 py-0.5 border border-gray-900 dark:border-gray-100">
+                      {pub.venue}
+                    </span>
+                    <span>{pub.type}</span>
+
+                    {pub.doi && (
+                      <a href={pub.doi} target="_blank" rel="noopener noreferrer" class="hover:underline decoration-2 underline-offset-2">
+                        DOI_LINK
+                      </a>
+                    )}
+                    {pub.pdf && (
+                      <a href={pub.pdf} target="_blank" rel="noopener noreferrer" class="hover:underline decoration-2 underline-offset-2 text-black dark:text-white font-bold">
+                        [PDF]
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </article>
           ))}

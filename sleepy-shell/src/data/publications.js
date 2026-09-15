@@ -1,5 +1,32 @@
 export const publications = [
   {
+    title: "Sequences in Data to Represent Learning Processes",
+    authors: "Valle Torre, M.",
+    year: 2026,
+    venue: "Delft University of Technology",
+    type: "Dissertation",
+    pdf: "/assets/publications/Dissertation-MVT.pdf",
+    cover: "/assets/img/ThesisCoverFront-web.jpg",
+  },
+  {
+    title: "Process Collapse or Compensatory Strategy? Profiling and Scaffolding Help-Seeking with an AI Tutor",
+    authors: "Valle Torre, M., Weijers, R., Specht, M., & Oertel, C.",
+    year: 2026,
+    venue: "SSRN",
+    type: "Preprint",
+    doi: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6297817",
+    pdf: "/assets/publications/Collapse-2026.pdf",
+  },
+  {
+    title: "What makes an Expert? Comparing Problem-solving Practices in Data Science Notebooks",
+    authors: "Valle Torre, M., Specht, M., & Oertel, C.",
+    year: 2026,
+    venue: "arXiv",
+    type: "Preprint",
+    doi: "https://arxiv.org/abs/2602.15428",
+    pdf: "/assets/publications/Expert-preprint-2026.pdf",
+  },
+  {
     title: "LLM Chatbots in High School Programming: Exploring Behaviors and Interventions",
     authors: "Valle Torre, M., Specht, M., & Oertel, C.",
     year: 2026,

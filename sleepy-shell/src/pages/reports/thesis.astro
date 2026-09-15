@@ -1,0 +1,183 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const phases = [
+  {
+    id: 'analyze',
+    number: '01',
+    label: 'Analyze',
+    title: 'Make the process visible',
+    text: 'The first task is to look beyond final products. Sequence analysis can reveal the structure and fine-grained actions of problem solving, but static artifacts still conceal the trial-and-error that produces them.',
+    color: 'amber'
+  },
+  {
+    id: 'understand',
+    number: '02',
+    label: 'Understand',
+    title: 'Turn traces into context',
+    text: 'Fine-grained, real-time telemetry makes it possible to understand what a learner has tried—not only whether an answer is correct. JELAI couples those traces with conversational tutoring inside the learning environment.',
+    color: 'emerald'
+  },
+  {
+    id: 'support',
+    number: '03',
+    label: 'Support',
+    title: 'Scaffold the next step',
+    text: 'When AI can generate a final product instantly, the crucial design question is how it shapes learners’ help-seeking. The final studies examine interventions that encourage productive inquiry while accounting for different learner needs.',
+    color: 'orange'
+  }
+];
+
+const papers = [
+  {
+    chapter: 'Chapter 2',
+    phase: 'analyze',
+    title: 'EdX Log Data Analysis Made Easy: Introducing ELAT',
+    venue: 'LAK 2020',
+    href: '/assets/publications/LAK2020-ELAT.pdf',
+    detail: 'Sequence and process visualization for MOOC logs at scale.'
+  },
+  {
+    chapter: 'Chapter 3',
+    phase: 'analyze',
+    title: 'The Sequence Matters in Learning',
+    venue: 'LAK 2024',
+    href: '/assets/publications/LAK24_Sequence.pdf',
+    detail: 'A systematic review identifying the gap between analysis and real-time intervention.'
+  },
+  {
+    chapter: 'Chapter 4',
+    phase: 'analyze',
+    title: 'What makes an Expert?',
+    venue: 'arXiv 2026',
+    href: 'https://arxiv.org/abs/2602.15428',
+    detail: 'Comparing problem-solving practices in data science notebooks.'
+  },
+  {
+    chapter: 'Chapter 5',
+    phase: 'understand',
+    title: 'JELAI: Integrating AI and Learning Analytics in Jupyter Notebooks',
+    venue: 'AIED 2025',
+    href: '/assets/publications/AIED2025-JELAI.pdf',
+    detail: 'An architecture for context-aware tutoring and fine-grained learning analytics.'
+  },
+  {
+    chapter: 'Chapter 6',
+    phase: 'support',
+    title: 'LLM Chatbots in High School Programming',
+    venue: "SAC '26",
+    href: '/assets/publications/ACM-SAC26-LLM.pdf',
+    detail: 'How help-seeking behavior and explicit teaching shape AI use in programming.'
+  },
+  {
+    chapter: 'Chapter 7',
+    phase: 'support',
+    title: 'Process Collapse or Compensatory Strategy?',
+    venue: 'SSRN 2026',
+    href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6297817',
+    detail: 'Profiling and scaffolding help-seeking with an AI tutor.'
+  }
+];
+---
+
+<Layout
+  title="Sequences in Data to Represent Learning Processes | Manuel Valle Torre"
+  description="An interactive thesis showcase about making learning processes visible in the age of AI."
+>
+  <Header slot="header" />
+
+  <main class="max-w-5xl mx-auto px-6 py-12 space-y-20">
+    <section class="grid md:grid-cols-[230px,1fr] gap-10 items-start">
+      <a href="/assets/publications/Dissertation-MVT.pdf" target="_blank" rel="noopener noreferrer" class="block group md:sticky md:top-8">
+        <img src="/assets/img/ThesisCoverFront-web.jpg" alt="Cover of Sequences in Data to Represent Learning Processes" width="700" height="1004" loading="eager" class="w-full max-w-[230px] mx-auto shadow-xl transition-transform duration-300 group-hover:-translate-y-2" />
+        <span class="mt-4 block text-center font-analog-mono text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 group-hover:underline">Open dissertation [PDF] ↗</span>
+      </a>
+
+      <div class="pt-2">
+        <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400 mb-5">Thesis Showcase // TU Delft // 2026</p>
+        <h1 class="text-5xl md:text-7xl font-analog-serif font-black tracking-tighter text-black dark:text-white leading-[0.9]">Sequences in Data to Represent Learning Processes</h1>
+        <p class="mt-5 font-analog-serif text-xl text-gray-700 dark:text-gray-300 italic">Manuel Valle Torre</p>
+        <div class="mt-8 border-l-4 border-amber-600 pl-6 font-analog-serif text-xl md:text-2xl leading-relaxed text-gray-800 dark:text-gray-200">
+          <p>For a maguey to produce a towering quiote—or to be harvested for mezcal—its growth must happen in the right order and over the right amount of time. If this long, and mostly invisible, process is short-circuited, the output lacks substance. The same is true for learning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900 rounded-2xl p-8 md:p-12">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-800 dark:text-amber-300">The problem</p>
+        <h2 class="mt-3 text-3xl md:text-5xl font-analog-serif font-bold text-gray-900 dark:text-white">A polished product can hide an unfinished process.</h2>
+        <p class="mt-6 font-analog-serif text-lg leading-relaxed text-gray-700 dark:text-gray-300">With the popularization of AI, both a novice delegating all the work and a more experienced hard worker can generate identical results in seconds; the final product is no longer a reliable measure of competence. However, we have the tools to make students' learning processes visible and be able to support them in real time.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="journey-title">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="font-analog-mono text-xs uppercase tracking-widest text-gray-500">Interactive research journey</p>
+        <h2 id="journey-title" class="mt-3 text-4xl md:text-5xl font-analog-serif font-bold text-black dark:text-white">Follow the growth cycle</h2>
+        <p class="mt-4 font-analog-serif text-lg text-gray-700 dark:text-gray-300">Select a phase to trace how the work moves from observing learning sequences to supporting learners while they work.</p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-3" role="tablist" aria-label="Research phases">
+        {phases.map((phase, index) => (
+          <button type="button" class={`phase-tab text-left p-5 border-2 transition-colors ${index === 0 ? 'bg-amber-700 border-amber-700 text-white' : 'border-gray-300 dark:border-gray-700 hover:border-amber-600 text-gray-800 dark:text-gray-200'}`} data-phase={phase.id} role="tab" aria-selected={index === 0 ? 'true' : 'false'}>
+            <span class="font-analog-mono text-xs opacity-80">PHASE {phase.number}</span>
+            <span class="block mt-1 font-analog-serif text-2xl font-bold">{phase.label}</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="mt-5 border-2 border-gray-900 dark:border-gray-100 p-7 md:p-10">
+        {phases.map((phase, index) => (
+          <div class:list={["phase-panel", index !== 0 && "hidden"]} data-panel={phase.id} role="tabpanel">
+            <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400">Phase {phase.number}: {phase.label}</p>
+            <h3 class="mt-2 text-3xl font-analog-serif font-bold text-black dark:text-white">{phase.title}</h3>
+            <p class="mt-4 max-w-3xl font-analog-serif text-lg leading-relaxed text-gray-700 dark:text-gray-300">{phase.text}</p>
+            <div class="mt-7 grid sm:grid-cols-2 gap-4">
+              {papers.filter((paper) => paper.phase === phase.id).map((paper) => (
+                <a href={paper.href} target="_blank" rel="noopener noreferrer" class="group block bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 hover:border-amber-600 dark:hover:border-amber-400 transition-colors">
+                  <span class="font-analog-mono text-xs text-gray-500">{paper.chapter} // {paper.venue}</span>
+                  <h4 class="mt-2 font-analog-serif text-xl font-bold text-black dark:text-white group-hover:underline">{paper.title} ↗</h4>
+                  <p class="mt-2 font-analog-serif text-sm text-gray-600 dark:text-gray-400">{paper.detail}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-[1fr,280px] gap-10 items-center border-y-2 border-dashed border-gray-300 dark:border-gray-700 py-14">
+      <div>
+        <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400">The contribution</p>
+        <h2 class="mt-3 text-4xl font-analog-serif font-bold text-black dark:text-white">From data to learning.</h2>
+        <p class="mt-5 font-analog-serif text-lg leading-relaxed text-gray-700 dark:text-gray-300">Instead of chasing flawless final products, this dissertation explores how we can use data to uncover the learning process as it happens. It investigates practical ways to deploy real-time conversational interventions, showing how sequence-driven scaffolding can nudge students in the right direction and prevent them from treating AI as a solution vending machine.</p>
+      </div>
+      <a href="/assets/publications/Dissertation-MVT.pdf" target="_blank" rel="noopener noreferrer" class="block text-center border-2 border-black dark:border-white py-4 px-5 font-analog-mono text-sm font-bold uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">Read the full dissertation →</a>
+    </section>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll('.phase-tab');
+    const panels = document.querySelectorAll('.phase-panel');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const phase = tab.dataset.phase;
+        tabs.forEach((item) => {
+          const active = item.dataset.phase === phase;
+          item.setAttribute('aria-selected', String(active));
+          item.classList.toggle('bg-amber-700', active);
+          item.classList.toggle('border-amber-700', active);
+          item.classList.toggle('text-white', active);
+          item.classList.toggle('border-gray-300', !active);
+          item.classList.toggle('dark:border-gray-700', !active);
+          item.classList.toggle('text-gray-800', !active);
+          item.classList.toggle('dark:text-gray-200', !active);
+        });
+        panels.forEach((panel) => panel.classList.toggle('hidden', panel.dataset.panel !== phase));
+      });
+    });
+  </script>
+</Layout>
