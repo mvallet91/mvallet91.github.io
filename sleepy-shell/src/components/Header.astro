@@ -10,9 +10,9 @@ const navItems = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="border-b-4 border-black dark:border-white bg-white dark:bg-gray-900">
+<header class="sticky top-0 z-50 border-b-4 border-[#38332e] bg-[#fffefa]/95 backdrop-blur-sm dark:border-[#f7efe5] dark:bg-[#211d1a]/95">
   <nav class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-      <a href="/" class="text-3xl font-analog-serif font-black text-black dark:text-white tracking-tight hover:underline decoration-2 underline-offset-4">
+      <a href="/" class="text-3xl font-analog-serif font-black text-[#211d1a] dark:text-[#fffaf3] tracking-tight hover:underline decoration-2 underline-offset-4">
         MVT.
       </a>
       <div class="flex flex-wrap justify-center gap-6 md:gap-8">
@@ -22,9 +22,9 @@ const currentPath = Astro.url.pathname;
             target={item.external ? "_blank" : undefined}
             rel={item.external ? "noopener noreferrer" : undefined}
             class:list={[
-              "font-analog-mono text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-black dark:hover:text-white transition-colors",
-              currentPath.startsWith(item.href) && item.href !== '/' ? "text-black dark:text-white underline decoration-2 underline-offset-4" : "",
-              currentPath === item.href ? "text-black dark:text-white underline decoration-2 underline-offset-4" : ""
+              "font-analog-mono text-sm font-bold uppercase tracking-wider text-[#9a8d82] hover:text-[#9a3412] dark:text-[#c8b9aa] dark:hover:text-[#fdba74] transition-colors",
+              currentPath.startsWith(item.href) && item.href !== '/' ? "text-[#211d1a] dark:text-[#fffaf3] underline decoration-2 underline-offset-4" : "",
+              currentPath === item.href ? "text-[#211d1a] dark:text-[#fffaf3] underline decoration-2 underline-offset-4" : ""
             ]}
           >
             [{item.label}]

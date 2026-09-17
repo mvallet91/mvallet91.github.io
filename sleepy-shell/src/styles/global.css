@@ -2,10 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+  --page-bg: #fdfbf8;
+  --surface: #fffefa;
+  --surface-muted: #f4eee6;
+  --ink: #38332e;
+  --ink-strong: #211d1a;
+  --ink-muted: #756b63;
+  --line: #d8cec3;
+  --accent: #9a3412;
+  --accent-soft: #ffedd5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page-bg: #211d1a;
+    --surface: #2c2621;
+    --surface-muted: #382f28;
+    --ink: #f7efe5;
+    --ink-strong: #fffaf3;
+    --ink-muted: #c8b9aa;
+    --line: #66584d;
+    --accent: #fdba74;
+    --accent-soft: #5b301d;
+  }
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #FDFBF8;
-  color: #38332E;
+  font-family: "Segoe UI", Inter, system-ui, sans-serif;
+  background-color: var(--page-bg);
+  color: var(--ink);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body,
+header,
+main,
+article,
+aside,
+section {
+  border-color: var(--line);
+}
+
+a {
+  color: inherit;
+}
+
+input,
+select,
+textarea,
+button {
+  color: var(--ink);
+  background-color: var(--surface);
+  border-color: var(--line);
+}
+
+::placeholder {
+  color: var(--ink-muted);
 }
 
 /* Smooth scrolling and selection styling */
@@ -14,7 +69,7 @@ html {
 }
 
 ::selection {
-  background: #0E7490; /* cyan-800 */
+  background: var(--accent);
   color: white;
 }
 
@@ -38,7 +93,7 @@ html {
 }
 
 .font-analog-serif {
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Segoe UI", Inter, system-ui, sans-serif;
 }
 
 .font-analog-mono {
@@ -47,7 +102,7 @@ html {
 
 .analog-highlighter {
   transition: background-size 0.2s ease-in-out;
-  background-image: linear-gradient(120deg, #FDE047 0%, #FDE047 100%);
+  background-image: linear-gradient(120deg, #fbbf24 0%, #fbbf24 100%);
   background-repeat: no-repeat;
   background-size: 0% 100%;
   background-position: 0 0;
@@ -55,4 +110,10 @@ html {
 
 .group:hover .analog-highlighter {
   background-size: 100% 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .analog-highlighter {
+    background-image: linear-gradient(120deg, #92400e 0%, #92400e 100%);
+  }
 }
