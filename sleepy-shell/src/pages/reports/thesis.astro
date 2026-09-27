@@ -10,7 +10,7 @@ const meta = {
   },
   es: {
     title: 'Secuencias en datos para representar procesos de aprendizaje | Manuel Valle Torre',
-    description: 'Una muestra interactiva de tesis sobre cómo hacer visibles los procesos de aprendizaje en la era de la IA.'
+    description: 'Un recorrido interactivo por una tesis sobre cómo ver y apoyar la forma en que aprendemos, en tiempos de inteligencia artificial.'
   }
 };
 
@@ -18,33 +18,33 @@ const phases = [
   {
     id: 'analyze',
     number: '01',
-    label: { en: 'Analyze', es: 'Analizar' },
+    label: { en: 'Analyze', es: 'Observar' },
     title: { en: 'Make the process visible', es: 'Hacer visible el proceso' },
     text: {
       en: 'The first task is to look beyond final products. Sequence analysis can reveal the structure and fine-grained actions of problem solving, but static artifacts still conceal the trial-and-error that produces them.',
-      es: 'La primera tarea es mirar más allá de los productos finales. El análisis de secuencias puede revelar la estructura y las acciones detalladas de la resolución de problemas, pero los artefactos estáticos siguen ocultando el ensayo y error que los produce.'
+      es: 'El primer paso es mirar más allá del resultado final. Fijarnos en el orden en que un estudiante hace las cosas nos muestra, paso a paso, cómo resuelve un problema. Un trabajo terminado, en cambio, no deja ver todos los intentos y errores que hubo en el camino.'
     },
     color: 'amber'
   },
   {
     id: 'understand',
     number: '02',
-    label: { en: 'Understand', es: 'Comprender' },
-    title: { en: 'Turn traces into context', es: 'Convertir rastros en contexto' },
+    label: { en: 'Understand', es: 'Entender' },
+    title: { en: 'Turn traces into context', es: 'Saber qué ha intentado cada quien' },
     text: {
       en: 'Fine-grained, real-time telemetry makes it possible to understand what a learner has tried—not only whether an answer is correct. JELAI couples those traces with conversational tutoring inside the learning environment.',
-      es: 'La telemetría detallada y en tiempo real permite entender lo que un estudiante ha intentado, no solo si una respuesta es correcta. JELAI combina esos rastros con tutoría conversacional dentro del propio entorno de aprendizaje.'
+      es: 'Si registramos lo que hace cada estudiante mientras trabaja, podemos saber qué ha intentado y no solo si llegó a la respuesta correcta. JELAI, la herramienta que desarrollamos, junta esa información con un tutor con el que el estudiante puede conversar, ahí mismo donde está aprendiendo.'
     },
     color: 'emerald'
   },
   {
     id: 'support',
     number: '03',
-    label: { en: 'Support', es: 'Apoyar' },
-    title: { en: 'Scaffold the next step', es: 'Andamiar el siguiente paso' },
+    label: { en: 'Support', es: 'Acompañar' },
+    title: { en: 'Scaffold the next step', es: 'Ayudar a dar el siguiente paso' },
     text: {
       en: 'When AI can generate a final product instantly, the crucial design question is how it shapes learning. The final studies examine interventions that encourage productive inquiry while accounting for different learner needs.',
-      es: 'Cuando la IA puede generar un producto final al instante, la pregunta de diseño clave es cómo moldea el aprendizaje. Los últimos estudios examinan intervenciones que fomentan la indagación productiva y toman en cuenta las distintas necesidades de los estudiantes.'
+      es: 'Si la IA puede hacer la tarea en segundos, la gran pregunta es qué pasa con lo que los estudiantes aprenden. Los últimos estudios prueban distintas formas de animarlos a preguntar mejor y a pensar por sí mismos, tomando en cuenta que cada quien necesita algo diferente.'
     },
     color: 'orange'
   }
@@ -60,7 +60,7 @@ const papers = [
     href: '/assets/publications/LAK2020-ELAT.pdf',
     detail: {
       en: 'Sequence and process visualization for MOOC logs at scale.',
-      es: 'Visualización de secuencias y procesos para registros de MOOC a gran escala.'
+      es: 'Una herramienta para ver, paso a paso, cómo aprenden miles de personas en cursos en línea.'
     }
   },
   {
@@ -71,7 +71,7 @@ const papers = [
     href: '/assets/publications/LAK24_Sequence.pdf',
     detail: {
       en: 'A systematic review identifying the gap between analysis and real-time intervention.',
-      es: 'Una revisión sistemática que identifica la brecha entre el análisis y la intervención en tiempo real.'
+      es: 'Un repaso de muchos estudios que muestra que casi nadie usa estos datos para ayudar al estudiante en el momento.'
     }
   },
   {
@@ -82,7 +82,7 @@ const papers = [
     href: 'https://arxiv.org/abs/2602.15428',
     detail: {
       en: 'Comparing problem-solving practices in data science notebooks.',
-      es: 'Comparación de prácticas de resolución de problemas en notebooks de ciencia de datos.'
+      es: 'Cómo resuelven problemas de análisis de datos los expertos comparados con los principiantes.'
     }
   },
   {
@@ -93,7 +93,7 @@ const papers = [
     href: '/assets/publications/AIED2025-JELAI.pdf',
     detail: {
       en: 'An architecture for context-aware tutoring and fine-grained learning analytics.',
-      es: 'Una arquitectura para tutoría sensible al contexto y analítica del aprendizaje detallada.'
+      es: 'Un tutor con IA que entiende lo que el estudiante está haciendo mientras programa.'
     }
   },
   {
@@ -104,7 +104,7 @@ const papers = [
     href: '/assets/publications/ACM-SAC26-LLM.pdf',
     detail: {
       en: 'How help-seeking behavior and explicit teaching shape AI use in programming.',
-      es: 'Cómo la búsqueda de ayuda y la enseñanza explícita moldean el uso de la IA en programación.'
+      es: 'Cómo usan la IA estudiantes de prepa que aprenden a programar, y qué cambia cuando se les enseña a pedir ayuda.'
     }
   },
   {
@@ -115,7 +115,7 @@ const papers = [
     href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6297817',
     detail: {
       en: 'Profiling and scaffolding help-seeking with an AI tutor.',
-      es: 'Perfilar y andamiar la búsqueda de ayuda con un tutor de IA.'
+      es: 'Cómo le piden ayuda los estudiantes a un tutor con IA, y cómo guiarlos para que le saquen más provecho.'
     }
   }
 ];
@@ -123,27 +123,27 @@ const papers = [
 const propositions = [
   {
     en: 'Thanks to Generative AI (GenAI), the quality of unsupervised artifacts—like an essay or code snippet—went from imperfect to useless as a proxy for student competence. (This thesis)',
-    es: 'Gracias a la IA generativa (IAGen), la calidad de los productos elaborados sin supervisión —como un ensayo o un fragmento de código— pasó de ser un indicador imperfecto de la competencia del estudiante a uno inútil. (Esta tesis)'
+    es: 'Con la IA generativa, una tarea hecha en casa —un ensayo o un programa— ya no dice nada de lo que el estudiante sabe: antes era una pista imperfecta; ahora, inútil. (Esta tesis)'
   },
   {
     en: 'Unproductive help-seeking with GenAI does not self-correct over time; without explicit intervention, use of AI tools tends toward dependence rather than learning. (This thesis)',
-    es: 'La búsqueda de ayuda improductiva con IAGen no se corrige sola con el tiempo; sin una intervención explícita, el uso de herramientas de IA tiende a la dependencia más que al aprendizaje. (Esta tesis)'
+    es: 'Pedirle ayuda a la IA de mala manera no se corrige solo con el tiempo; si nadie interviene, los estudiantes terminan dependiendo de ella en vez de aprender. (Esta tesis)'
   },
   {
     en: 'The value of AI in education lies not in optimizing performance but in supporting the learning process: a well-timed encouragement can help more than a precise explanation. (This thesis)',
-    es: 'El valor de la IA en la educación no está en optimizar el desempeño, sino en apoyar el proceso de aprendizaje: unas palabras de aliento en el momento justo pueden ayudar más que una explicación precisa. (Esta tesis)'
+    es: 'Lo valioso de la IA en la educación no es subir las calificaciones, sino acompañar el proceso de aprender: unas palabras de ánimo en el momento justo pueden ayudar más que la explicación perfecta. (Esta tesis)'
   },
   {
     en: 'Delegation is a valid professional strategy; education must shift from forbidding GenAI delegation to teaching students when to use it and how to formulate and verify the output of that delegation.',
-    es: 'Delegar es una estrategia profesional válida; la educación debe pasar de prohibir la delegación a la IAGen a enseñar a los estudiantes cuándo recurrir a ella y cómo formular y verificar el resultado de esa delegación.'
+    es: 'En el trabajo, delegar es válido. En vez de prohibir que los estudiantes le pasen tareas a la IA, hay que enseñarles cuándo hacerlo, cómo pedírselo y cómo revisar lo que les entrega.'
   },
   {
     en: 'We design GenAI tutors to be conversational partners, but students use them as vending machines; pedagogical design must bridge the gap between how tools are actually used and how we imagine they should be. (This thesis)',
-    es: 'Diseñamos tutores de IAGen para que sean interlocutores, pero los estudiantes los usan como máquinas expendedoras; el diseño pedagógico debe cerrar la brecha entre cómo se usan realmente las herramientas y cómo imaginamos que deberían usarse. (Esta tesis)'
+    es: 'Diseñamos tutores con IA para conversar con los estudiantes, pero ellos los usan como máquinas expendedoras: meten una pregunta y sacan una respuesta. Hay que diseñar pensando en cómo se usan de verdad las herramientas, no en cómo nos gustaría que se usaran. (Esta tesis)'
   },
   {
     en: 'Learning Analytics often falls into analysis paralysis, carefully mapping the learning journey without actually intervening, while GenAI implementation is opportunistic; effective educational technology requires us to find a middle ground.',
-    es: 'La analítica del aprendizaje suele caer en la parálisis por análisis, trazando con cuidado el recorrido de aprendizaje sin llegar a intervenir, mientras que la implementación de la IAGen es oportunista; una tecnología educativa eficaz nos exige encontrar un punto medio.'
+    es: 'Quienes estudiamos datos educativos a veces nos quedamos analizando sin actuar: describimos con cuidado cómo aprenden los estudiantes, pero no hacemos nada con eso. Mientras tanto, la IA llega a las aulas sin mucho plan. La buena tecnología educativa está en un punto medio.'
   },
   {
     en: 'The view from the mountain top may be the same whether you arrive by bicycle or by car, but the joy is in the pedaling; in our rush to automate the outcome, we risk losing the pleasure of the process.',
@@ -151,7 +151,7 @@ const propositions = [
   },
   {
     en: 'Educational research can no longer afford to be paralyzed by systemic inertia; to keep pace with technological change, schools, teachers, and students must become active participants in the research process.',
-    es: 'La investigación educativa ya no puede darse el lujo de quedar paralizada por la inercia del sistema; para seguir el ritmo del cambio tecnológico, escuelas, docentes y estudiantes deben volverse participantes activos del proceso de investigación.'
+    es: 'La investigación en educación ya no puede quedarse atorada por lo lento que cambian las instituciones; para seguirle el paso a la tecnología, escuelas, maestros y estudiantes tienen que participar activamente en la investigación.'
   },
   {
     en: 'Beware of the illusion of competence: plumbing tutorials and instructions will give you the required knowledge, but only water will tell you if your installation is right.',
@@ -159,7 +159,7 @@ const propositions = [
   },
   {
     en: "Writing a dissertation on `process over product' is ironic, given that the work is ultimately judged by what is captured in this book rather than the years of process.",
-    es: 'Escribir una tesis sobre “el proceso por encima del producto” es irónico, dado que el trabajo se juzga, al final, por lo que queda plasmado en este libro y no por los años de proceso.'
+    es: 'Es irónico escribir una tesis sobre “el proceso importa más que el resultado”, cuando al final se evalúa por lo que quedó en este libro y no por los años de trabajo.'
   }
 ];
 
@@ -234,13 +234,13 @@ const coverAlt = {
       </a>
 
       <div class="pt-2">
-        <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400 mb-5"><L en="Thesis Showcase // TU Delft // 2026" es="Muestra de tesis // TU Delft // 2026" /></p>
+        <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400 mb-5"><L en="Thesis Showcase // TU Delft // 2026" es="Tesis doctoral // TU Delft // 2026" /></p>
         <h1 class="text-5xl md:text-7xl font-analog-serif font-black tracking-tighter text-black dark:text-white leading-[0.9]"><L en="Sequences in Data to Represent Learning Processes" es="Secuencias en datos para representar procesos de aprendizaje" /></h1>
         <p class="mt-5 font-analog-serif text-xl text-gray-700 dark:text-gray-300 italic">Manuel Valle Torre</p>
         <div class="mt-8 border-l-4 border-amber-600 pl-6 font-analog-serif text-xl md:text-2xl leading-relaxed text-gray-800 dark:text-gray-200">
           <p><L
             en="For a maguey to produce a towering quiote—or to be harvested for mezcal—its growth must happen in the right order and over the right amount of time. If this long, and mostly invisible, process is short-circuited, the output lacks substance. The same is true for learning."
-            es="Para que un maguey produzca un quiote imponente —o para que se pueda cosechar para hacer mezcal—, su crecimiento debe darse en el orden correcto y durante el tiempo necesario. Si se toman atajos en este proceso largo y casi siempre invisible, el resultado carece de sustancia. Lo mismo pasa con el aprendizaje."
+            es="Para que un maguey dé un quiote altísimo —o para que sirva para hacer mezcal—, tiene que crecer en el orden correcto y durante el tiempo que necesita. Si se apura ese proceso largo y casi siempre invisible, el resultado se queda hueco. Con el aprendizaje pasa lo mismo."
           /></p>
         </div>
       </div>
@@ -249,21 +249,21 @@ const coverAlt = {
     <section class="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900 rounded-2xl p-8 md:p-12">
       <div class="max-w-3xl mx-auto text-center">
         <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-800 dark:text-amber-300"><L en="The problem" es="El problema" /></p>
-        <h2 class="mt-3 text-3xl md:text-5xl font-analog-serif font-bold text-gray-900 dark:text-white"><L en="A polished product can hide an unfinished process." es="Un producto pulido puede esconder un proceso inacabado." /></h2>
+        <h2 class="mt-3 text-3xl md:text-5xl font-analog-serif font-bold text-gray-900 dark:text-white"><L en="A polished product can hide an unfinished process." es="Un buen resultado puede esconder un aprendizaje a medias." /></h2>
         <p class="mt-6 font-analog-serif text-lg leading-relaxed text-gray-700 dark:text-gray-300"><L
           en="With the popularization of AI, both a novice delegating all the work and a more experienced hard worker can generate identical results in seconds; the final product is no longer a reliable measure of competence. However, we have the tools to make students' learning processes visible and be able to support them in real time."
-          es="Con la popularización de la IA, tanto un principiante que delega todo el trabajo como alguien con más experiencia que trabaja con esmero pueden generar resultados idénticos en segundos; el producto final ya no es una medida confiable de la competencia. Sin embargo, contamos con las herramientas para hacer visibles los procesos de aprendizaje de los estudiantes y apoyarlos en tiempo real."
+          es="Hoy, con la IA, un principiante que le deja todo el trabajo a la máquina y alguien con experiencia que se esfuerza de verdad pueden entregar exactamente lo mismo en segundos. Por eso, el trabajo final ya no basta para saber cuánto aprendió alguien. La buena noticia es que ya tenemos herramientas para ver cómo aprenden los estudiantes y ayudarlos justo cuando lo necesitan."
         /></p>
       </div>
     </section>
 
     <section aria-labelledby="journey-title">
       <div class="text-center max-w-3xl mx-auto">
-        <p class="font-analog-mono text-xs uppercase tracking-widest text-gray-500"><L en="Interactive research journey" es="Recorrido interactivo por la investigación" /></p>
+        <p class="font-analog-mono text-xs uppercase tracking-widest text-gray-500"><L en="Interactive research journey" es="Un recorrido por la investigación" /></p>
         <h2 id="journey-title" class="mt-3 text-4xl md:text-5xl font-analog-serif font-bold text-black dark:text-white"><L en="Follow the growth cycle" es="Sigue el ciclo de crecimiento" /></h2>
         <p class="mt-4 font-analog-serif text-lg text-gray-700 dark:text-gray-300"><L
           en="Select a phase to trace how the work moves from observing learning sequences to supporting learners while they work."
-          es="Selecciona una fase para ver cómo el trabajo avanza de observar secuencias de aprendizaje a apoyar a los estudiantes mientras trabajan."
+          es="Elige una fase para ver cómo la investigación pasa de observar cómo aprenden los estudiantes a ayudarlos mientras trabajan."
         /></p>
       </div>
 
@@ -299,7 +299,7 @@ const coverAlt = {
     <section aria-labelledby="propositions-title" class="border-y-2 border-dashed border-gray-300 dark:border-gray-700 py-14">
       <div class="max-w-3xl">
         <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400"><L en="Propositions" es="Proposiciones" /></p>
-        <h2 id="propositions-title" class="mt-3 text-4xl md:text-5xl font-analog-serif font-bold text-black dark:text-white"><L en="Ten positions on process, AI, and learning." es="Diez posturas sobre el proceso, la IA y el aprendizaje." /></h2>
+        <h2 id="propositions-title" class="mt-3 text-4xl md:text-5xl font-analog-serif font-bold text-black dark:text-white"><L en="Ten positions on process, AI, and learning." es="Diez ideas sobre el proceso, la IA y el aprendizaje." /></h2>
       </div>
       <ol class="mt-10 grid md:grid-cols-2 gap-4 list-none p-0">
         {propositions.map((proposition, index) => (
@@ -313,11 +313,11 @@ const coverAlt = {
 
     <section class="grid md:grid-cols-[1fr,280px] gap-10 items-center border-y-2 border-dashed border-gray-300 dark:border-gray-700 py-14">
       <div>
-        <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400"><L en="The contribution" es="La contribución" /></p>
+        <p class="font-analog-mono text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400"><L en="The contribution" es="Lo que aporta" /></p>
         <h2 class="mt-3 text-4xl font-analog-serif font-bold text-black dark:text-white"><L en="From data to learning." es="De los datos al aprendizaje." /></h2>
         <p class="mt-5 font-analog-serif text-lg leading-relaxed text-gray-700 dark:text-gray-300"><L
           en="Instead of chasing flawless final products, this dissertation explores how we can use data to uncover the learning process as it happens. It investigates practical ways to deploy real-time conversational interventions, showing how sequence-driven scaffolding can nudge students in the right direction and prevent them from treating AI as a solution vending machine."
-          es="En lugar de perseguir productos finales impecables, esta tesis explora cómo podemos usar los datos para descubrir el proceso de aprendizaje mientras ocurre. Investiga formas prácticas de implementar intervenciones conversacionales en tiempo real y muestra cómo un andamiaje basado en secuencias puede orientar a los estudiantes en la dirección correcta y evitar que traten a la IA como una máquina expendedora de soluciones."
+          es="En lugar de obsesionarse con trabajos finales perfectos, esta tesis busca usar los datos para ver cómo aprenden los estudiantes mientras aprenden. Prueba formas prácticas de ayudarlos en el momento a través de conversaciones: un empujoncito en la dirección correcta para que no usen la IA como una máquina que solo escupe respuestas."
         /></p>
       </div>
       <a href="/assets/publications/Dissertation-MVT.pdf" target="_blank" rel="noopener noreferrer" class="block text-center border-2 border-black dark:border-white py-4 px-5 font-analog-mono text-sm font-bold uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"><L en="Read the full dissertation →" es="Lee la tesis completa →" /></a>
