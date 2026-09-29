@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sequences in Data to Represent Learning Processes | Manuel Valle Torre</title>
+  <meta name="description" content="A short, calm visual story of a PhD thesis: a maguey that grows, and the learning process nobody sees.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function () {
+      var d = document.documentElement, lang = 'en';
+      d.classList.add('js');
+      try {
+        var q = new URLSearchParams(location.search).get('lang');
+        var s = localStorage.getItem('thesis-lang');
+        lang = (q || s) === 'es' ? 'es' : 'en';
+      } catch (e) {}
+      d.dataset.lang = lang; d.lang = lang;
+      if (lang === 'es') document.title = 'Secuencias en datos para representar procesos de aprendizaje | Manuel Valle Torre';
+    })();
+  </script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <a class="brand" href="/">MVT.</a>
+  <nav class="stages" aria-label="Research stages / Etapas de la investigación">
+    <a href="#story" data-p="0.30" data-stage="1"><span>01</span><span class="lbl"><span class="en">Observe</span><span class="es">Observar</span></span></a>
+    <a href="#story" data-p="0.56" data-stage="2"><span>02</span><span class="lbl"><span class="en">Understand</span><span class="es">Entender</span></span></a>
+    <a href="#story" data-p="0.80" data-stage="3"><span>03</span><span class="lbl"><span class="en">Accompany</span><span class="es">Acompañar</span></span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language / Idioma">
+    <button type="button" data-set-lang="en" aria-pressed="true" title="English" lang="en">
+      <svg viewBox="0 0 60 30" width="24" height="12" aria-hidden="true">
+        <clipPath id="uk-clip"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-clip)" stroke="#C8102E" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+      </svg><span class="code">EN</span>
+    </button>
+    <button type="button" data-set-lang="es" aria-pressed="false" title="Español" lang="es">
+      <svg viewBox="0 0 21 12" width="21" height="12" aria-hidden="true">
+        <rect width="7" height="12" fill="#006847"/><rect x="7" width="7" height="12" fill="#fff"/><rect x="14" width="7" height="12" fill="#CE1126"/>
+        <ellipse cx="10.5" cy="6" rx="1.7" ry="2" fill="#8C5A2B"/>
+        <path d="M8.6,7.6 Q10.5,9.4 12.4,7.6" stroke="#006847" stroke-width="0.7" fill="none"/>
+      </svg><span class="code">ES</span>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main>
+  <!-- ============ OPENING ============ -->
+  <section class="open">
+    <p class="kicker"><span class="en">PhD thesis // TU Delft // 2026</span><span class="es">Tesis doctoral // TU Delft // 2026</span></p>
+    <h1><span class="en">Sequences in Data to Represent Learning Processes</span><span class="es">Secuencias en datos para representar procesos de aprendizaje</span></h1>
+    <p class="by">Manuel Valle Torre</p>
+    <blockquote>
+      <span class="en">For a maguey to produce a towering quiote, its growth must happen in the right order and over the right amount of time. The same is true for learning.</span>
+      <span class="es">Para que un maguey dé un quiote altísimo, tiene que crecer en el orden correcto y durante el tiempo que necesita. Con el aprendizaje pasa lo mismo.</span>
+    </blockquote>
+    <div class="cue"><span class="en">Scroll</span><span class="es">Desplázate</span><i></i></div>
+  </section>
+
+  <!-- ============ THE STORY ============ -->
+  <section class="story" id="story" aria-label="The story of the thesis / La historia de la tesis">
+    <div class="sticky">
+      <div>
+        <div class="acts">
+          <div class="act">
+            <p class="kicker"><span class="en">The problem</span><span class="es">El problema</span></p>
+            <h2><span class="en">We only ever see the quiote.</span><span class="es">Casi siempre solo vemos el quiote.</span></h2>
+            <p><span class="en">The tall, finished result. But a polished product can hide an unfinished process.</span><span class="es">El resultado alto y terminado. Pero un buen resultado puede esconder un aprendizaje a medias.</span></p>
+          </div>
+          <div class="act">
+            <p class="kicker"><span class="en">01 · Observe</span><span class="es">01 · Observar</span></p>
+            <h2><span class="en">Make the process visible.</span><span class="es">Hacer visible el proceso.</span></h2>
+            <p><span class="en">Underground, years of small steps: read, write, run, fail, fix. Leaf by leaf.</span><span class="es">Bajo la tierra hay años de pasos pequeños: leer, escribir, correr, fallar, corregir. Hoja por hoja.</span></p>
+          </div>
+          <div class="act">
+            <p class="kicker"><span class="en">02 · Understand</span><span class="es">02 · Entender</span></p>
+            <h2><span class="en">Turn traces into context.</span><span class="es">Saber qué ha intentado cada quien.</span></h2>
+            <p><span class="en">Every trace feeds a picture of what each learner has tried, and where they got stuck.</span><span class="es">Cada rastro alimenta un panorama de lo que cada estudiante ha intentado y dónde se atoró.</span></p>
+          </div>
+          <div class="act">
+            <p class="kicker"><span class="en">03 · Accompany</span><span class="es">03 · Acompañar</span></p>
+            <h2><span class="en">Support the next step.</span><span class="es">Ayudar a dar el siguiente paso.</span></h2>
+            <p><span class="en">A stake holds the young stem, just long enough. Then it lets go.</span><span class="es">Una estaca sostiene el tallo joven, justo el tiempo necesario. Luego lo suelta.</span></p>
+          </div>
+          <div class="act">
+            <p class="kicker"><span class="en">The thesis</span><span class="es">La tesis</span></p>
+            <h2><span class="en">From data to learning.</span><span class="es">De los datos al aprendizaje.</span></h2>
+            <p><span class="en">Instead of chasing flawless final products, use data to see how students learn while they learn.</span><span class="es">En lugar de obsesionarse con trabajos finales perfectos, usar los datos para ver cómo aprenden los estudiantes mientras aprenden.</span></p>
+            <div class="links">
+              <a class="btn solid" href="/assets/publications/Dissertation-MVT.pdf" target="_blank" rel="noopener noreferrer"><span class="en">Read the dissertation →</span><span class="es">Lee la tesis →</span></a>
+            </div>
+            <a class="link" href="/reports/thesis-scroll/"><span class="en">See the detailed version →</span><span class="es">Ver la versión detallada →</span></a>
+          </div>
+        </div>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="art" id="art-wrap">
+        <svg id="art" viewBox="70 0 660 1000" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="false"></svg>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="/reports/"><span class="en">← All reports</span><span class="es">← Todos los reportes</span></a>
+  <a href="/reports/thesis/"><span class="en">Classic (static) version</span><span class="es">Versión clásica (estática)</span></a>
+</footer>
+
+<script src="../thesis-scroll/d3.min.js"></script>
+<script src="./app.js"></script>
+<script>
+  if (/^https?:/.test(location.protocol) && !/^(localhost|127\.|0\.0\.0\.0)/.test(location.hostname)) {
+    var gc = document.createElement('script');
+    gc.async = true; gc.src = '//gc.zgo.at/count.js';
+    gc.setAttribute('data-goatcounter', 'https://mvallet91.goatcounter.com/count');
+    document.body.appendChild(gc);
+  }
+</script>
+</body>
+</html>
