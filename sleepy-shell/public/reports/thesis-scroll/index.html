@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sequences in Data to Represent Learning Processes | Manuel Valle Torre</title>
+  <meta name="description" content="A scroll-driven visual tour of a PhD thesis on making learning processes visible in the age of AI.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    /* Choose language + mark JS support before first paint (no flash). */
+    (function () {
+      var d = document.documentElement, lang = 'en';
+      d.classList.add('js');
+      try {
+        var q = new URLSearchParams(location.search).get('lang');
+        var s = localStorage.getItem('thesis-lang');
+        lang = (q || s) === 'es' ? 'es' : 'en';
+      } catch (e) {}
+      d.dataset.lang = lang; d.lang = lang;
+      if (lang === 'es') document.title = 'Secuencias en datos para representar procesos de aprendizaje | Manuel Valle Torre';
+    })();
+  </script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <a class="brand" href="/">MVT.</a>
+
+  <nav class="stages" aria-label="Research stages / Etapas de la investigación">
+    <a href="#analyze" data-stage="analyze"><span>01</span><span class="lbl"><span class="en">Observe</span><span class="es">Observar</span></span></a>
+    <a href="#understand" data-stage="understand"><span>02</span><span class="lbl"><span class="en">Understand</span><span class="es">Entender</span></span></a>
+    <a href="#support" data-stage="support"><span>03</span><span class="lbl"><span class="en">Accompany</span><span class="es">Acompañar</span></span></a>
+  </nav>
+
+  <div class="lang" role="group" aria-label="Language / Idioma">
+    <button type="button" data-set-lang="en" aria-pressed="true" title="English" lang="en">
+      <svg viewBox="0 0 60 30" width="24" height="12" aria-hidden="true">
+        <clipPath id="uk-clip"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-clip)" stroke="#C8102E" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+      </svg><span class="code">EN</span>
+    </button>
+    <button type="button" data-set-lang="es" aria-pressed="false" title="Español" lang="es">
+      <svg viewBox="0 0 21 12" width="21" height="12" aria-hidden="true">
+        <rect width="7" height="12" fill="#006847"/><rect x="7" width="7" height="12" fill="#fff"/><rect x="14" width="7" height="12" fill="#CE1126"/>
+        <ellipse cx="10.5" cy="6" rx="1.7" ry="2" fill="#8C5A2B"/>
+        <path d="M8.6,7.6 Q10.5,9.4 12.4,7.6" stroke="#006847" stroke-width="0.7" fill="none"/>
+      </svg><span class="code">ES</span>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <a class="cover" href="/assets/publications/Dissertation-MVT.pdf" target="_blank" rel="noopener noreferrer">
+      <img src="/assets/img/ThesisCoverFront-web.jpg" width="700" height="1004" alt="Cover of Sequences in Data to Represent Learning Processes" data-alt-en="Cover of Sequences in Data to Represent Learning Processes" data-alt-es="Portada de Secuencias en datos para representar procesos de aprendizaje">
+      <span><span class="en">Open dissertation [PDF] ↗</span><span class="es">Abrir tesis [PDF] ↗</span></span>
+    </a>
+    <div>
+      <p class="kicker"><span class="en">PhD thesis // TU Delft // 2026</span><span class="es">Tesis doctoral // TU Delft // 2026</span></p>
+      <h1><span class="en">Sequences in Data to Represent Learning Processes</span><span class="es">Secuencias en datos para representar procesos de aprendizaje</span></h1>
+      <p class="by">Manuel Valle Torre</p>
+      <blockquote>
+        <span class="en">For a maguey to produce a towering quiote—or to be harvested for mezcal—its growth must happen in the right order and over the right amount of time. If this long, and mostly invisible, process is short-circuited, the output lacks substance. The same is true for learning.</span>
+        <span class="es">Para que un maguey dé un quiote altísimo —o para que sirva para hacer mezcal—, tiene que crecer en el orden correcto y durante el tiempo que necesita. Si se apura ese proceso largo y casi siempre invisible, el resultado se queda hueco. Con el aprendizaje pasa lo mismo.</span>
+      </blockquote>
+    </div>
+    <div class="cue"><span class="en">Scroll</span><span class="es">Desplázate</span><i></i></div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <div class="stage" id="problem" data-stage-id="problem">
+    <section class="scene" data-scene="problem" style="--beats:3" aria-labelledby="problem-title">
+      <div class="scene-sticky">
+        <div class="scene-text">
+          <p class="kicker"><span class="en">The problem</span><span class="es">El problema</span></p>
+          <h2 id="problem-title"><span class="en">A polished product can hide an unfinished process.</span><span class="es">Un buen resultado puede esconder un aprendizaje a medias.</span></h2>
+          <div class="beats">
+            <p class="beat"><span class="en">Two students hand in the same assignment. Side by side, the results are identical.</span><span class="es">Dos estudiantes entregan la misma tarea. Una junto a la otra, los resultados son idénticos.</span></p>
+            <p class="beat"><span class="en">But behind them, the paths couldn’t be more different: one tried, failed and tried again; the other asked an AI and pasted the answer.</span><span class="es">Pero detrás hay caminos muy distintos: una persona lo intentó, se equivocó y volvió a intentar; la otra le pidió la respuesta a una IA y la pegó.</span></p>
+            <p class="beat"><span class="en">With AI, the final product no longer tells us who learned. The process does, and now we can see it and support it in real time.</span><span class="es">Con la IA, el trabajo final ya no dice quién aprendió. El proceso sí, y ahora podemos verlo y apoyarlo en tiempo real.</span></p>
+          </div>
+          <div class="beat-dots" aria-hidden="true"></div>
+        </div>
+        <div class="scene-viz" role="img"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ STAGE 1 · OBSERVE ============ -->
+  <div class="stage" id="analyze" data-stage-id="analyze">
+    <section class="scene" data-scene="analyze" style="--beats:3" aria-labelledby="analyze-title">
+      <div class="scene-sticky">
+        <div class="scene-text">
+          <p class="kicker"><span class="en">Phase 01 // Observe</span><span class="es">Fase 01 // Observar</span></p>
+          <h2 id="analyze-title"><span class="en">Make the process visible</span><span class="es">Hacer visible el proceso</span></h2>
+          <div class="beats">
+            <p class="beat"><span class="en">Most of the time, all we see is the final product: the same tidy square at the end of every row.</span><span class="es">Casi siempre, lo único que vemos es el resultado final: el mismo cuadrito ordenado al final de cada fila.</span></p>
+            <p class="beat"><span class="en">Each row is a learner. Unfold the trace and the trial and error appears: reading, writing, running, failing, fixing.</span><span class="es">Cada fila es un estudiante. Al desplegar el rastro aparece todo el ensayo y error: leer, escribir, ejecutar, fallar, corregir.</span></p>
+            <p class="beat"><span class="en">Group similar sequences and patterns emerge: those who plan first, those who learn by trial and error, and those who delegate it all to an AI.</span><span class="es">Al agrupar secuencias parecidas aparecen patrones: quienes planean primero, quienes van probando y corrigiendo, y quienes le delegan todo a la IA.</span></p>
+          </div>
+          <div class="beat-dots" aria-hidden="true"></div>
+        </div>
+        <div class="scene-viz" role="img"></div>
+      </div>
+    </section>
+    <div class="papers">
+      <h3><span class="en">The research behind this phase</span><span class="es">La investigación detrás de esta fase</span></h3>
+      <div class="paper-grid">
+        <a class="paper" href="/assets/publications/LAK2020-ELAT.pdf" target="_blank" rel="noopener noreferrer"><small><span class="en">Chapter 2</span><span class="es">Capítulo 2</span> // LAK 2020</small><h4>EdX Log Data Analysis Made Easy: Introducing ELAT ↗</h4><p><span class="en">Sequence and process visualization for MOOC logs at scale.</span><span class="es">Una herramienta para ver, paso a paso, cómo aprenden miles de personas en cursos en línea.</span></p></a>
+        <a class="paper" href="/assets/publications/LAK24_Sequence.pdf" target="_blank" rel="noopener noreferrer"><small><span class="en">Chapter 3</span><span class="es">Capítulo 3</span> // LAK 2024</small><h4>The Sequence Matters in Learning ↗</h4><p><span class="en">A systematic review identifying the gap between analysis and real-time intervention.</span><span class="es">Un repaso de muchos estudios que muestra que casi nadie usa estos datos para ayudar al estudiante en el momento.</span></p></a>
+        <a class="paper" href="https://arxiv.org/abs/2602.15428" target="_blank" rel="noopener noreferrer"><small><span class="en">Chapter 4</span><span class="es">Capítulo 4</span> // arXiv 2026</small><h4>What makes an Expert? ↗</h4><p><span class="en">Comparing problem-solving practices in data science notebooks.</span><span class="es">Cómo resuelven problemas de análisis de datos los expertos comparados con los principiantes.</span></p></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STAGE 2 · UNDERSTAND ============ -->
+  <div class="stage" id="understand" data-stage-id="understand">
+    <section class="scene" data-scene="understand" style="--beats:3" aria-labelledby="understand-title">
+      <div class="scene-sticky">
+        <div class="scene-text">
+          <p class="kicker"><span class="en">Phase 02 // Understand</span><span class="es">Fase 02 // Entender</span></p>
+          <h2 id="understand-title"><span class="en">Turn traces into context</span><span class="es">Saber qué ha intentado cada quien</span></h2>
+          <div class="beats">
+            <p class="beat"><span class="en">While a student works in a Jupyter notebook, every run, error and edit leaves a small trace.</span><span class="es">Mientras un estudiante trabaja en un notebook de Jupyter, cada ejecución, error y cambio deja un pequeño rastro.</span></p>
+            <p class="beat"><span class="en">JELAI gathers those traces in real time into a picture of what this learner has actually tried.</span><span class="es">JELAI junta esos rastros en tiempo real y arma un panorama de lo que este estudiante realmente ha intentado.</span></p>
+            <p class="beat"><span class="en">So when the student asks for help, the tutor already knows the context, and can nudge instead of just handing over the answer.</span><span class="es">Así, cuando el estudiante pide ayuda, el tutor ya conoce el contexto y puede dar una pista en lugar de soltar la respuesta.</span></p>
+          </div>
+          <div class="beat-dots" aria-hidden="true"></div>
+        </div>
+        <div class="scene-viz" role="img"></div>
+      </div>
+    </section>
+    <div class="papers">
+      <h3><span class="en">The research behind this phase</span><span class="es">La investigación detrás de esta fase</span></h3>
+      <div class="paper-grid">
+        <a class="paper" href="/assets/publications/AIED2025-JELAI.pdf" target="_blank" rel="noopener noreferrer"><small><span class="en">Chapter 5</span><span class="es">Capítulo 5</span> // AIED 2025</small><h4>JELAI: Integrating AI and Learning Analytics in Jupyter Notebooks ↗</h4><p><span class="en">An architecture for context-aware tutoring and fine-grained learning analytics.</span><span class="es">Un tutor con IA que entiende lo que el estudiante está haciendo mientras programa.</span></p></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STAGE 3 · ACCOMPANY ============ -->
+  <div class="stage" id="support" data-stage-id="support">
+    <section class="scene" data-scene="support" style="--beats:3" aria-labelledby="support-title">
+      <div class="scene-sticky">
+        <div class="scene-text">
+          <p class="kicker"><span class="en">Phase 03 // Accompany</span><span class="es">Fase 03 // Acompañar</span></p>
+          <h2 id="support-title"><span class="en">Scaffold the next step</span><span class="es">Ayudar a dar el siguiente paso</span></h2>
+          <div class="beats">
+            <p class="beat"><span class="en">Left alone, many students use an AI tutor like a vending machine: question in, answer out. Their own effort fades.</span><span class="es">Si nadie interviene, muchos estudiantes usan al tutor de IA como una máquina expendedora: entra la pregunta, sale la respuesta. Su propio esfuerzo se va apagando.</span></p>
+            <p class="beat"><span class="en">A well-timed nudge (a question, a hint, a bit of encouragement) brings the student back into the work.</span><span class="es">Un empujoncito a tiempo (una pregunta, una pista o unas palabras de ánimo) devuelve al estudiante al trabajo.</span></p>
+            <p class="beat"><span class="en">And the support adapts: more for those who need it, fading away as each learner gains confidence.</span><span class="es">Y el apoyo se adapta: más para quien lo necesita, y se retira poco a poco conforme cada quien gana confianza.</span></p>
+          </div>
+          <div class="beat-dots" aria-hidden="true"></div>
+        </div>
+        <div class="scene-viz" role="img"></div>
+      </div>
+    </section>
+    <div class="papers">
+      <h3><span class="en">The research behind this phase</span><span class="es">La investigación detrás de esta fase</span></h3>
+      <div class="paper-grid">
+        <a class="paper" href="/assets/publications/ACM-SAC26-LLM.pdf" target="_blank" rel="noopener noreferrer"><small><span class="en">Chapter 6</span><span class="es">Capítulo 6</span> // SAC ’26</small><h4>LLM Chatbots in High School Programming ↗</h4><p><span class="en">How help-seeking behavior and explicit teaching shape AI use in programming.</span><span class="es">Cómo usan la IA estudiantes de prepa que aprenden a programar, y qué cambia cuando se les enseña a pedir ayuda.</span></p></a>
+        <a class="paper" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6297817" target="_blank" rel="noopener noreferrer"><small><span class="en">Chapter 7</span><span class="es">Capítulo 7</span> // SSRN 2026</small><h4>Process Collapse or Compensatory Strategy? ↗</h4><p><span class="en">Profiling and scaffolding help-seeking with an AI tutor.</span><span class="es">Cómo le piden ayuda los estudiantes a un tutor con IA, y cómo guiarlos para que le saquen más provecho.</span></p></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROPOSITIONS ============ -->
+  <section class="props" aria-labelledby="props-title">
+    <p class="kicker"><span class="en">Propositions</span><span class="es">Proposiciones</span></p>
+    <h2 id="props-title"><span class="en">Ten positions on process, AI, and learning.</span><span class="es">Diez ideas sobre el proceso, la IA y el aprendizaje.</span></h2>
+    <ol>
+      <li><span class="num">01</span><p><span class="en">Thanks to Generative AI (GenAI), the quality of unsupervised artifacts—like an essay or code snippet—went from imperfect to useless as a proxy for student competence. (This thesis)</span><span class="es">Con la IA generativa, una tarea hecha en casa —un ensayo o un programa— ya no dice nada de lo que el estudiante sabe: antes era una pista imperfecta; ahora, inútil. (Esta tesis)</span></p></li>
+      <li><span class="num">02</span><p><span class="en">Unproductive help-seeking with GenAI does not self-correct over time; without explicit intervention, use of AI tools tends toward dependence rather than learning. (This thesis)</span><span class="es">Pedirle ayuda a la IA de mala manera no se corrige solo con el tiempo; si nadie interviene, los estudiantes terminan dependiendo de ella en vez de aprender. (Esta tesis)</span></p></li>
+      <li><span class="num">03</span><p><span class="en">The value of AI in education lies not in optimizing performance but in supporting the learning process: a well-timed encouragement can help more than a precise explanation. (This thesis)</span><span class="es">Lo valioso de la IA en la educación no es subir las calificaciones, sino acompañar el proceso de aprender: unas palabras de ánimo en el momento justo pueden ayudar más que la explicación perfecta. (Esta tesis)</span></p></li>
+      <li><span class="num">04</span><p><span class="en">Delegation is a valid professional strategy; education must shift from forbidding GenAI delegation to teaching students when to use it and how to formulate and verify the output of that delegation.</span><span class="es">En el trabajo, delegar es válido. En vez de prohibir que los estudiantes le pasen tareas a la IA, hay que enseñarles cuándo hacerlo, cómo pedírselo y cómo revisar lo que les entrega.</span></p></li>
+      <li><span class="num">05</span><p><span class="en">We design GenAI tutors to be conversational partners, but students use them as vending machines; pedagogical design must bridge the gap between how tools are actually used and how we imagine they should be. (This thesis)</span><span class="es">Diseñamos tutores con IA para conversar con los estudiantes, pero ellos los usan como máquinas expendedoras: meten una pregunta y sacan una respuesta. Hay que diseñar pensando en cómo se usan de verdad las herramientas, no en cómo nos gustaría que se usaran. (Esta tesis)</span></p></li>
+      <li><span class="num">06</span><p><span class="en">Learning Analytics often falls into analysis paralysis, carefully mapping the learning journey without actually intervening, while GenAI implementation is opportunistic; effective educational technology requires us to find a middle ground.</span><span class="es">Quienes estudiamos datos educativos a veces nos quedamos analizando sin actuar: describimos con cuidado cómo aprenden los estudiantes, pero no hacemos nada con eso. Mientras tanto, la IA llega a las aulas sin mucho plan. La buena tecnología educativa está en un punto medio.</span></p></li>
+      <li><span class="num">07</span><p><span class="en">The view from the mountain top may be the same whether you arrive by bicycle or by car, but the joy is in the pedaling; in our rush to automate the outcome, we risk losing the pleasure of the process.</span><span class="es">La vista desde la cima puede ser la misma si llegas en bicicleta o en carro, pero la alegría está en pedalear; con la prisa por automatizar el resultado, corremos el riesgo de perder el gusto por el proceso.</span></p></li>
+      <li><span class="num">08</span><p><span class="en">Educational research can no longer afford to be paralyzed by systemic inertia; to keep pace with technological change, schools, teachers, and students must become active participants in the research process.</span><span class="es">La investigación en educación ya no puede quedarse atorada por lo lento que cambian las instituciones; para seguirle el paso a la tecnología, escuelas, maestros y estudiantes tienen que participar activamente en la investigación.</span></p></li>
+      <li><span class="num">09</span><p><span class="en">Beware of the illusion of competence: plumbing tutorials and instructions will give you the required knowledge, but only water will tell you if your installation is right.</span><span class="es">Cuidado con la ilusión de competencia: los tutoriales e instructivos de plomería te darán el conocimiento necesario, pero solo el agua te dirá si tu instalación quedó bien.</span></p></li>
+      <li><span class="num">10</span><p><span class="en">Writing a dissertation on “process over product” is ironic, given that the work is ultimately judged by what is captured in this book rather than the years of process.</span><span class="es">Es irónico escribir una tesis sobre “el proceso importa más que el resultado”, cuando al final se evalúa por lo que quedó en este libro y no por los años de trabajo.</span></p></li>
+    </ol>
+  </section>
+
+  <!-- ============ CONTRIBUTION ============ -->
+  <section class="contrib">
+    <div>
+      <p class="kicker"><span class="en">The contribution</span><span class="es">Lo que aporta</span></p>
+      <h2><span class="en">From data to learning.</span><span class="es">De los datos al aprendizaje.</span></h2>
+      <p><span class="en">Instead of chasing flawless final products, this dissertation explores how we can use data to uncover the learning process as it happens. It investigates practical ways to deploy real-time conversational interventions, showing how sequence-driven scaffolding can nudge students in the right direction and prevent them from treating AI as a solution vending machine.</span><span class="es">En lugar de obsesionarse con trabajos finales perfectos, esta tesis busca usar los datos para ver cómo aprenden los estudiantes mientras aprenden. Al final, la idea es probar formas prácticas de ayudarlos en el momento a través de conversaciones: un empujoncito en la dirección correcta para que no usen la IA como una máquina que solo escupe respuestas.</span></p>
+    </div>
+    <a class="cta" href="/assets/publications/Dissertation-MVT.pdf" target="_blank" rel="noopener noreferrer"><span class="en">Read the full dissertation →</span><span class="es">Lee la tesis completa →</span></a>
+  </section>
+</main>
+
+<footer>
+  <a href="/reports/"><span class="en">← All reports</span><span class="es">← Todos los reportes</span></a>
+  <a href="/reports/thesis/"><span class="en">Classic (static) version</span><span class="es">Versión clásica (estática)</span></a>
+</footer>
+
+<script src="./d3.min.js"></script>
+<script src="./app.js"></script>
+<script>
+  /* Privacy-friendly analytics, same as the rest of the site (skipped locally). */
+  if (/^https?:/.test(location.protocol) && !/^(localhost|127\.|0\.0\.0\.0)/.test(location.hostname)) {
+    var gc = document.createElement('script');
+    gc.async = true; gc.src = '//gc.zgo.at/count.js';
+    gc.setAttribute('data-goatcounter', 'https://mvallet91.goatcounter.com/count');
+    document.body.appendChild(gc);
+  }
+</script>
+</body>
+</html>
