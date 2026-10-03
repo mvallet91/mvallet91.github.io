@@ -15,6 +15,7 @@
     --green: #5f9d34;
     --snow: #ffffff;
     --indigo: #2c3661;
+    --violet: #7656a8;
     --display: "Roboto", "Helvetica Neue", Arial, sans-serif;
     --body: "Roboto", "Helvetica Neue", Arial, sans-serif;
   }
@@ -223,7 +224,14 @@
   #s13 .copy { left: 120px; top: 150px; width: 1200px; gap: 26px; }
   #s13 blockquote { margin: 0; font-family: var(--display); font-weight: 300; font-size: 60px; line-height: 1.15; text-wrap: balance; max-width: 22ch; }
   #s13 cite { font-style: normal; font-size: 24px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+  #s13 .lt-process { color: #b4e68a; }
+  #s13 .lt-product { color: #8fe0f5; }
   #s13 .last { font-family: var(--display); font-size: 60px; font-weight: 300; line-height: 1.2; max-width: 26ch; margin: 0; text-wrap: balance; }
+  #s13 .thanks .who { display: block; margin-top: 10px; font-family: var(--body); font-size: 24px; font-weight: 400; letter-spacing: .02em; text-align: right; opacity: .92; }
+  #s13 .qr { position: absolute; right: 120px; bottom: 90px; display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+  #s13 .qr-tile { background: #fff; padding: 18px 18px 14px; border-radius: 10px; width: 260px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 8px 30px rgba(8,34,110,.3); }
+  #s13 .qr-tile svg { display: block; width: 100%; height: auto; }
+  #s13 .qr-cap { font-size: 15px; font-weight: 500; letter-spacing: .05em; white-space: nowrap; text-transform: uppercase; color: #14232b; text-align: center; }
   #s13 .thanks { position: absolute; right: 120px; top: 110px; font-family: var(--display); font-weight: 300; font-size: 40px; color: var(--snow); }
 
   /* ---------- chrome: controls + notes ---------- */
@@ -452,7 +460,7 @@
           <div class="gap-where">A short lesson</div>
           <p class="gap-q">Changed how students asked for help</p>
         </div>
-        <div class="gap-col" style="--c: var(--teal)">
+        <div class="gap-col" style="--c: var(--green)">
           <div class="gap-where">A small acknowledgment</div>
           <p class="gap-q">Noticing a better question kept them trying</p>
         </div>
@@ -466,7 +474,7 @@
       <div class="eyebrow">What this means</div>
       <h2>Three things we can do now</h2>
       <div class="who-grid">
-        <div style="--c: var(--green)">
+        <div style="--c: var(--violet)">
           <h3>Teachers</h3>
           <p>Teach how to ask a good question, not only how to find the answer.</p>
         </div>
@@ -474,7 +482,7 @@
           <h3>Toolmakers</h3>
           <p>Design for restraint: a hint before the answer.</p>
         </div>
-        <div style="--c: var(--teal)">
+        <div style="--c: var(--green)">
           <h3>Institutions</h3>
           <p>Measure the journey, not only the finished product.</p>
         </div>
@@ -486,9 +494,12 @@
       <img class="bg" src="img/pampa.jpg" alt="A loaded touring bicycle on a long empty road across the Patagonian steppe">
       <div class="scrim"></div>
       <div class="copy">
-        <p class="last">When the final answer reveals nothing about the learning that occurred to produce it, the process is all we have left.</p>
+        <p class="last">When the <span class="lt-product">final answer</span> reveals nothing about the learning that occurred to produce it, the <span class="lt-process">process</span> is all we have left.</p>
       </div>
-      <div class="thanks">Thank you</div>
+      <div class="thanks">Thank you<span class="who">Manuel Valle Torre</span></div>
+      <div class="qr">
+        <div class="qr-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" aria-label="QR code linking to the thesis report" role="img"><path class="qrline" stroke="#14232b" stroke-width="1" shape-rendering="crispEdges" d="M0 0.5h7m1 0h2m1 0h1m1 0h1m1 0h1m1 0h5m1 0h1m2 0h7m-33 1h1m5 0h1m4 0h1m1 0h1m1 0h1m1 0h1m3 0h2m1 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m3 0h1m2 0h1m2 0h3m1 0h2m4 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m2 0h1m2 0h2m8 0h2m2 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m3 0h2m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h4m1 0h1m2 0h1m1 0h1m2 0h2m3 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-24 1h1m3 0h4m1 0h1m2 0h3m-23 1h7m2 0h1m3 0h1m2 0h1m2 0h1m1 0h3m2 0h2m3 0h1m-32 1h1m1 0h2m3 0h5m2 0h2m2 0h2m1 0h2m2 0h2m1 0h2m1 0h1m-33 1h4m1 0h3m1 0h2m1 0h2m1 0h1m2 0h1m1 0h2m2 0h1m3 0h1m1 0h2m-32 1h2m1 0h1m6 0h1m1 0h1m2 0h2m4 0h1m6 0h3m1 0h1m-30 1h1m2 0h1m1 0h1m3 0h1m1 0h1m3 0h2m2 0h4m2 0h2m1 0h2m-32 1h1m1 0h2m2 0h1m2 0h1m1 0h1m1 0h1m1 0h2m3 0h1m1 0h2m1 0h1m4 0h2m-32 1h2m2 0h4m8 0h1m2 0h3m2 0h2m2 0h3m-31 1h2m8 0h3m1 0h1m1 0h1m1 0h3m1 0h4m2 0h2m-29 1h3m1 0h1m1 0h2m4 0h6m4 0h2m1 0h2m3 0h1m-32 1h3m4 0h2m3 0h1m2 0h1m1 0h6m2 0h2m1 0h2m1 0h1m-33 1h1m3 0h1m1 0h2m1 0h1m1 0h1m1 0h3m1 0h1m2 0h3m2 0h4m1 0h1m-30 1h1m1 0h1m1 0h1m3 0h1m2 0h3m1 0h2m1 0h4m1 0h7m1 0h1m-30 1h2m1 0h4m1 0h3m1 0h1m1 0h2m3 0h1m2 0h1m1 0h3m-30 1h1m3 0h1m3 0h4m2 0h1m4 0h1m2 0h2m1 0h2m2 0h1m2 0h1m-33 1h1m2 0h2m1 0h1m1 0h1m2 0h3m2 0h1m3 0h2m2 0h6m1 0h1m-32 1h1m2 0h1m6 0h2m6 0h2m1 0h2m2 0h1m1 0h1m2 0h3m-33 1h1m1 0h1m1 0h1m1 0h1m1 0h2m2 0h3m9 0h5m3 0h1m-25 1h1m1 0h7m2 0h4m1 0h1m3 0h1m1 0h1m1 0h1m-33 1h7m1 0h3m5 0h1m1 0h1m4 0h2m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h1m3 0h1m1 0h3m2 0h6m3 0h4m-32 1h1m1 0h3m1 0h1m1 0h3m5 0h5m1 0h1m1 0h6m1 0h1m-32 1h1m1 0h3m1 0h1m1 0h1m4 0h9m3 0h1m2 0h2m2 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h3m2 0h1m2 0h2m1 0h5m1 0h1m-30 1h1m5 0h1m1 0h1m2 0h1m1 0h1m1 0h2m1 0h1m2 0h3m4 0h3m-31 1h7m3 0h2m1 0h1m1 0h1m1 0h3m3 0h2m1 0h2m1 0h1m1 0h1"/></svg><div class="qr-cap">Read the thesis report</div></div>
+      </div>
     </section>
 
   </div>
